@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Log in - NWSSU Online Payment System</title>
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <!-- Background Overlay -->
+    <div class="background-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+
+        <div class="brand">
+            <img src="photos/nwssu-logo.png" alt="NWSSU Logo">
+            <span>NWSSU</span>
+        </div>
+
+    </header>
+
+    <!-- Login Page -->
+    <main id="loginPage">
+
+        <div class="login-card">
+
+            <h1>Welcome!</h1>
+            <p>Sign in to your account</p>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter your username"
+                    required
+                >
+
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                >
+
+                <button type="submit" class="primary-button">
+                    Sign in
+                </button>
+
+                <!-- Login Error Message -->
+                <p id="loginMessage" class="message"></p>
+
+            </form>
+
+            <!-- Reminder -->
+            <p class="demo-note">
+                <b>Reminder:</b> Only the authorized person can access this website.
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Northwest Samar State University | Online Payment System</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/login.js"></script>
+
+</body>
+</html>

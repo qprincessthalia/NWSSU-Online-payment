@@ -1,0 +1,282 @@
+
+* {    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* BODY BACKGROUND */
+body {
+    position: relative;
+    height: 100vh;
+    background-image: url("../photos/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* BACKGROUND OVERLAY */
+.background-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        rgba(230, 155, 50, 0.70) 0%,
+        rgba(46, 139, 87, 0.70) 100%
+    );
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* NAVIGATION BAR */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    height: 75px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 2px 2%;
+
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    z-index: 2;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #163d70;
+}
+
+.brand img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.navbar nav a {
+    color: #163d70;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.navbar nav a:hover {
+    color: #2d75b9;
+}
+
+.navbar nav a.active {
+    padding-bottom: 6px;
+    border-bottom: 3px solid #2d75b9;
+}
+
+/* LOGIN PAGE */
+#loginPage {
+    position: absolute;
+
+    top: 75px;
+    bottom: 45px;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 1;
+}
+
+/* LOGIN CARD */
+.login-card {
+    width: 350px;
+    max-width: 100%;
+
+    background-color: #ffffff;
+
+    padding: 28px;
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* LOGIN HEADING */
+.login-card h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #002B5B;
+    margin-bottom: 6px;
+}
+
+.login-card > p {
+    text-align: center;
+    color: #777777;
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+/* FORM LABELS */
+#loginForm label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 6px;
+}
+
+/* INPUT FIELDS */
+#loginForm input {
+    display: block;
+    width: 100%;
+    height: 40px;
+
+    padding: 0 10px;
+    margin-bottom: 15px;
+
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+
+    font-size: 13px;
+    outline: none;
+}
+
+#loginForm input:focus {
+    border-color: #002B5B;
+    box-shadow: 0 0 5px rgba(0, 43, 91, 0.2);
+}
+
+/* SIGN IN BUTTON */
+.primary-button {
+    width: 100%;
+    height: 40px;
+
+    background-color: #002B5B;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.primary-button:hover {
+    background-color: #E69B32;
+}
+
+/* LOGIN MESSAGE */
+.message {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* REMINDER */
+.demo-note {
+    margin-top: 18px;
+    padding: 10px;
+
+    background-color: #F1F5F9;
+    border-left: 4px solid #E69B32;
+    border-radius: 4px;
+
+    color: #555555;
+    font-size: 11px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* FOOTER */
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: clamp(45px, 7.2vh, 62px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        90deg,
+        #168044 0%,
+        #168044 50%,
+        #E6A12E 100%
+    );
+
+    color: white;
+    padding: 10px 15px;
+
+    font-size: clamp(10px, 1.4vw, 14px);
+    text-align: center;
+
+    z-index: 999;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 600px) {
+
+    .navbar {
+        height: 65px;
+        padding: 0 5%;
+        gap: 20px;
+    }
+
+    .brand {
+        gap: 8px;
+        font-size: 19px;
+    }
+
+    .brand img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .navbar nav a {
+        font-size: 16px;
+    }
+
+    #loginPage {
+        top: 65px;
+        bottom: 45px;
+        padding: 15px;
+    }
+
+    .login-card {
+        width: 320px;
+        padding: 25px;
+    }
+
+    .login-card h1 {
+        font-size: 23px;
+    }
+
+    footer {
+        height: 45px;
+        font-size: 10px;
+    }
+}
