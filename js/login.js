@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let username = document.getElementById("username").value.trim().toLowerCase();
 
         // STUDENT LOGIN
-        if (username === "princess") {
+        if (username === "student") {
 
             window.location.href = "student-homepage.html";
 

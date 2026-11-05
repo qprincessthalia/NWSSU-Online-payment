@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment Receipt - NWSSU Online Payment System</title>
+
+    <link rel="stylesheet" href="css/payment-receipt.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="navbar">
+
+        <div class="brand">
+            <img src="photos/nwssu-logo.png" alt="NWSSU Logo">
+            <h2>NWSSU</h2>
+        </div>
+
+        <nav>
+            <a href="student-homepage.html">Home</a>
+            <a href="payment-catalog.html">Catalog</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="receipt-container">
+
+        <div class="receipt-header">
+            <h1>Payment Receipt</h1>
+            <p>Your transaction details are shown below.</p>
+        </div>
+
+        <section class="receipt-card">
+
+            <div class="receipt-status">
+                <h2>Payment Successful</h2>
+                <p>Your payment has been recorded.</p>
+            </div>
+
+            <div class="receipt-details">
+
+                <div class="detail-row">
+                    <span>Student Number</span>
+                    <strong>2024-00000</strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>Date of Purchase</span>
+                    <strong>November 3, 2026</strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>Time of Purchase</span>
+                    <strong>10:30 AM</strong>
+                </div>
+
+                <div class="divider"></div>
+
+                <h3>Product Purchased</h3>
+
+                <div class="product-row">
+                    <span>COR</span>
+                    <strong>₱30.00</strong>
+                </div>
+
+                <div class="product-row">
+                    <span>Student ID Lace</span>
+                    <strong>₱80.00</strong>
+                </div>
+
+                <div class="product-row">
+                    <span>School Uniform</span>
+                    <strong>₱450.00</strong>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="detail-row">
+                    <span>Payment Method</span>
+                    <strong>GCash</strong>
+                </div>
+
+                <div class="total-row">
+                    <span>Total Amount Paid</span>
+                    <strong>₱560.00</strong>
+                </div>
+
+            </div>
+
+            <p class="receipt-note">
+                Please keep this receipt as proof of your transaction.
+            </p>
+
+        </section>
+
+        <div class="receipt-actions">
+            <button type="button" class="download-button" onclick="window.print()">
+                Download Receipt
+            </button>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Northwest Samar State University | Online Payment System</p>
+    </footer>
+
+</body>
+</html>

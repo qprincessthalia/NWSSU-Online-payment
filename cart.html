@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +21,7 @@
 
         <nav>
             <a href="student-homepage.html">Home</a>
-            <a href="payment-catalog.html">Catalog</a>
-            <a href="cart.html" class="active">My Cart</a>
+            <a href="cart.html" class="active">Cart</a>
         </nav>
 
     </header>
@@ -48,9 +46,9 @@
                 </div>
 
                 <div class="quantity-control">
-                    <button class="quantity-button">−</button>
+                    <button class="quantity-button" type="button" disabled>−</button>
                     <span class="quantity">1</span>
-                    <button class="quantity-button">+</button>
+                    <button class="quantity-button" type="button" disabled>+</button>
                 </div>
 
                 <span class="item-price">₱30.00</span>
@@ -66,9 +64,9 @@
                 </div>
 
                 <div class="quantity-control">
-                    <button class="quantity-button">−</button>
+                    <button class="quantity-button" type="button" disabled>−</button>
                     <span class="quantity">1</span>
-                    <button class="quantity-button">+</button>
+                    <button class="quantity-button" type="button" disabled>+</button>
                 </div>
 
                 <span class="item-price">₱80.00</span>
@@ -84,9 +82,9 @@
                 </div>
 
                 <div class="quantity-control">
-                    <button class="quantity-button">−</button>
+                    <button class="quantity-button" type="button" disabled>−</button>
                     <span class="quantity">1</span>
-                    <button class="quantity-button">+</button>
+                    <button class="quantity-button" type="button" disabled>+</button>
                 </div>
 
                 <span class="item-price">₱450.00</span>
@@ -97,12 +95,24 @@
 
         <!-- TOTAL -->
         <section class="cart-total">
-            <h3>Total Amount: <span>₱560.00</span></h3>
+            <h3>
+                Total Amount:
+                <span>₱560.00</span>
+            </h3>
         </section>
 
-        <a href="payment-catalog.html" class="back-link">
-            ← Continue Shopping
-        </a>
+        <!-- CART ACTION BUTTONS -->
+        <div class="cart-actions">
+
+            <button type="button" class="back-button" disabled>
+                ← Continue Shopping
+            </button>
+
+            <button type="button" class="payment-button" disabled>
+                Make Payment →
+            </button>
+
+        </div>
 
     </main>
 

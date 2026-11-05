@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment - NWSSU Online Payment System</title>
+
+    <link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+<header class="navbar">
+
+    <div class="brand">
+        <img src="photos/nwssu-logo.png" alt="NWSSU Logo">
+        <h2>NWSSU</h2>
+    </div>
+
+    <nav>
+        <a href="student-homepage.html">Home</a>
+        <a href="cart.html" class="active">Cart</a>
+    </nav>
+
+</header>
+    <!-- Main Content -->
+    <main class="payment-container">
+
+        <h1>Payment</h1>
+        <p class="subtitle">Review your order and payment details.</p>
+
+        <!-- Order Summary -->
+        <section class="payment-section">
+            <h2>Order Summary</h2>
+
+            <div class="order-item">
+                <span>COR</span>
+                <span>₱30.00</span>
+            </div>
+
+            <div class="order-item">
+                <span>Student ID Lace</span>
+                <span>₱80.00</span>
+            </div>
+
+            <div class="order-item">
+                <span>School Uniform</span>
+                <span>₱450.00</span>
+            </div>
+
+            <div class="total">
+                <span>Total Amount</span>
+                <span>₱560.00</span>
+            </div>
+        </section>
+
+        <!-- Payment Method -->
+        <section class="payment-section">
+            <h2>Payment Method</h2>
+
+            <label class="payment-option">
+                <input type="radio" name="payment" value="gcash" checked>
+                GCash
+            </label>
+        </section>
+
+        <!-- Payment Details -->
+        <section class="payment-section">
+            <h2>Payment Details</h2>
+
+            <div class="form-group">
+                <label for="proof">Upload Payment Receipt</label>
+                <input type="file" id="proof" accept="image/*,.pdf" disabled>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <div class="payment-actions">
+            <a href="cart.html" class="back-button">Back to Cart</a>
+            <button type="button" class="pay-button" disabled>
+                Pay Now
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Northwest Samar State University | Online Payment System</p>
+    </footer>
+
+</body>
+</html>
