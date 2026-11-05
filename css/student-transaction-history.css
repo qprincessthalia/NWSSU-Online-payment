@@ -1,0 +1,423 @@
+
+:root {
+    --navy: #163D70;
+    --green: #168044;
+    --gold: #E6A12E;
+    --background: #F5F7FA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: #333;
+}
+
+/* HEADER */
+.navbar {
+    width: 100%;
+    height: 75px;
+    padding: 8px 3%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 35px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.brand h2 {
+    color: var(--navy);
+    font-size: 25px;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: var(--navy);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--navy);
+}
+
+/* MAIN CONTENT */
+.transaction-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+    flex: 1;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TRANSACTION CARD */
+.transaction-card {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+/* TRANSACTION HEADER */
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 18px;
+}
+
+/* TRANSACTION TITLE */
+.transaction-title h2 {
+    color: var(--navy);
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.transaction-title p {
+    color: #777;
+    font-size: 13px;
+}
+
+/* SUMMARY CARDS */
+.transaction-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.summary-group {
+    padding: 12px;
+    background-color: #F8F9FB;
+    border-left: 3px solid var(--green);
+    border-radius: 3px;
+}
+
+.summary-group label {
+    display: block;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.summary-group p {
+    color: var(--navy);
+    font-size: 21px;
+    font-weight: bold;
+}
+
+/* TOTAL TRANSACTIONS */
+.total-transactions {
+    width: 45%;
+    max-width: 350px;
+    flex-shrink: 0;
+}
+
+/* TRANSACTION LIST */
+.transaction-list {
+    width: 100%;
+}
+
+.transaction-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.transaction-heading h3 {
+    color: var(--navy);
+    font-size: 16px;
+}
+
+.transaction-heading span {
+    color: #777;
+    font-size: 12px;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+}
+
+thead {
+    background-color: #F1F4F8;
+    color: var(--navy);
+}
+
+th, td {
+    padding: 13px 10px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+th {
+    font-weight: bold;
+}
+
+td {
+    color: #555;
+}
+
+tbody tr:hover {
+    background-color: #F8F9FB;
+}
+
+/* PURCHASED ITEMS */
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.item-list span {
+    color: #555;
+    font-size: 12px;
+}
+
+.item-list small {
+    color: var(--green);
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+/* TOTAL AMOUNT */
+.amount {
+    color: var(--navy);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* STATUS LABELS */
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* CLAIMED */
+.status.claimed {
+    background-color: #E5F4E9;
+    color: var(--green);
+}
+
+/* UNCLAIMED */
+.status.unclaimed {
+    background-color: #FFF3DC;
+    color: #B7791F;
+}
+
+/* RECEIPT LINK */
+td a {
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    min-height: 45px;
+    margin-top: auto;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        90deg,
+        #168044 0%,
+        #168044 50%,
+        #E6A12E 100%
+    );
+    color: white;
+    padding: 10px 15px;
+    font-size: clamp(10px, 1.4vw, 14px);
+    text-align: center;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 800px) {
+
+    .transaction-container {
+        width: 95%;
+    }
+
+    .transaction-card {
+        padding: 15px;
+    }
+
+    .transaction-list {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 750px;
+        font-size: 11px;
+    }
+
+    th, td {
+        padding: 10px 5px;
+    }
+
+    .summary-group label {
+        font-size: 11px;
+    }
+
+    .summary-group p {
+        font-size: 18px;
+    }
+}
+
+/* MOBILE DESIGN */
+@media (max-width: 600px) {
+
+    .navbar {
+        height: auto;
+        min-height: 65px;
+        padding: 8px 4%;
+        gap: 15px;
+    }
+
+    .brand img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .brand h2 {
+        font-size: 20px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .transaction-container {
+        width: 96%;
+        margin: 12px auto;
+    }
+
+    .transaction-card {
+        padding: 12px;
+    }
+
+    .transaction-header {
+        gap: 10px;
+    }
+
+    .transaction-title h2 {
+        font-size: 16px;
+    }
+
+    .transaction-title p {
+        font-size: 11px;
+    }
+
+    .total-transactions {
+        width: 42%;
+        padding: 9px;
+    }
+
+    .total-transactions label {
+        font-size: 10px;
+    }
+
+    .total-transactions p {
+        font-size: 17px;
+    }
+
+    .transaction-summary {
+        gap: 7px;
+    }
+
+    .summary-group {
+        padding: 8px;
+    }
+
+    .summary-group label {
+        font-size: 10px;
+    }
+
+    .summary-group p {
+        font-size: 16px;
+    }
+
+    .transaction-heading h3 {
+        font-size: 13px;
+    }
+
+    .transaction-heading span {
+        font-size: 10px;
+    }
+
+    footer {
+        font-size: 11px;
+    }
+}

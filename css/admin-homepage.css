@@ -1,0 +1,514 @@
+:root {
+    --navy: #163D70;
+    --green: #168044;
+    --gold: #E6A12E;
+    --background: #F5F7FA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: #333;
+}
+
+/* HEADER */
+.navbar {
+    width: 100%;
+    height: 100px;
+    padding: 10px 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.brand img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.brand h2 {
+    color: var(--navy);
+    font-size: 38px;
+}
+
+/* TOP NAVIGATION */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--navy);
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+nav a.active {
+    border-bottom: 4px solid var(--gold);
+}
+
+/* MAIN CONTAINER */
+.admin-container {
+    width: 90%;
+    max-width: 1400px;
+    flex: 1;
+    min-height: 0;
+    margin: 20px auto;
+    display: flex;
+    gap: 20px;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 12px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.sidebar h3 {
+    color: var(--navy);
+    font-size: 18px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.sidebar-link {
+    width: 100%;
+    padding: 14px 12px;
+    margin-bottom: 3px;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    transition: 0.2s;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background-color: #F1F4F8;
+    color: var(--green);
+}
+
+/* MAIN CONTENT */
+.admin-content {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* CONTENT SWITCHING */
+.content-section {
+    display: none;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* WELCOME SECTION */
+.welcome-section {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.welcome-section h2 {
+    color: var(--navy);
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.welcome-section p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* SUMMARY CARDS */
+.summary-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.summary-card {
+    padding: 20px;
+    background-color: #F8F9FB;
+    border: 1px solid #ddd;
+    border-left: 4px solid var(--green);
+    border-radius: 5px;
+}
+
+.summary-card p {
+    color: #555;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.summary-card h3 {
+    color: var(--navy);
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.summary-card small {
+    color: #777;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* SECTION TITLE */
+.section-title {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 18px;
+    flex-shrink: 0;
+}
+
+.section-title h2 {
+    color: var(--navy);
+    font-size: 21px;
+    margin-bottom: 6px;
+}
+
+.section-title p {
+    color: #777;
+    font-size: 13px;
+}
+
+/* TRANSACTION AND RECEIPT SECTIONS */
+#transactions.content-section.active,
+#receipts.content-section.active {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* SCROLLABLE TABLE AREA */
+.section-scroll {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+}
+
+thead {
+    background-color: #F1F4F8;
+    color: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+th, td {
+    padding: 13px 10px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+th {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+td {
+    color: #555;
+}
+
+tbody tr:hover {
+    background-color: #F8F9FB;
+}
+
+/* STATUS */
+.status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.status.completed {
+    background-color: #E5F4E9;
+    color: var(--green);
+}
+
+.status.pending {
+    background-color: #FFF3DC;
+    color: #B7791F;
+}
+
+/* RECEIPT LINK */
+td a {
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+td a:hover {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+/* REPORT CARDS */
+.report-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.report-card {
+    padding: 20px;
+    background-color: #F8F9FB;
+    border: 1px solid #ddd;
+    border-left: 4px solid var(--green);
+    border-radius: 5px;
+}
+
+.report-card label {
+    display: block;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.report-card h3 {
+    color: var(--navy);
+    font-size: 23px;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    height: 45px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        90deg,
+        #168044 0%,
+        #168044 50%,
+        #E6A12E 100%
+    );
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 800px) {
+
+    .admin-container {
+        width: 95%;
+        gap: 10px;
+    }
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .brand img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .brand h2 {
+        font-size: 28px;
+    }
+
+    nav a {
+        font-size: 18px;
+    }
+
+    .admin-content {
+        padding: 15px;
+    }
+
+    .summary-container,
+    .report-container {
+        gap: 10px;
+    }
+
+    .summary-card,
+    .report-card {
+        padding: 13px;
+    }
+
+    table {
+        min-width: 650px;
+    }
+}
+
+/* MOBILE DESIGN */
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 70px;
+        padding: 8px 4%;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .brand h2 {
+        font-size: 22px;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+    .admin-container {
+        width: 95%;
+        gap: 8px;
+    }
+
+    .sidebar {
+        width: 135px;
+        padding: 10px 5px;
+    }
+
+    .sidebar h3 {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .sidebar-link {
+        padding: 10px 7px;
+        font-size: 10px;
+    }
+
+    .admin-content {
+        padding: 10px;
+    }
+
+    .welcome-section {
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+    }
+
+    .welcome-section h2 {
+        font-size: 17px;
+    }
+
+    .welcome-section p {
+        font-size: 11px;
+    }
+
+    .summary-container {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .summary-card {
+        padding: 10px;
+    }
+
+    .summary-card p {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .summary-card h3 {
+        font-size: 22px;
+        margin-bottom: 4px;
+    }
+
+    .summary-card small {
+        font-size: 10px;
+    }
+
+    .section-title h2 {
+        font-size: 16px;
+    }
+
+    .section-title p {
+        font-size: 11px;
+    }
+
+    .report-container {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .report-card {
+        padding: 10px;
+    }
+
+    .report-card label {
+        font-size: 11px;
+        margin-bottom: 6px;
+    }
+
+    .report-card h3 {
+        font-size: 18px;
+    }
+
+    footer {
+        font-size: 10px;
+    }
+}

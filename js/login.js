@@ -17,10 +17,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // ADMIN LOGIN
-        else if (username === "thalia") {
+        else if (username === "admin") {
 
-            message.style.color = "red";
-            message.textContent = "Admin homepage is not yet available.";
+           window.location.href = "admin-homepage.html";
 
         }
 
