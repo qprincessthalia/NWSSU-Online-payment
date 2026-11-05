@@ -1,3 +1,4 @@
+
 :root {
     --navy: #163D70;
     --green: #168044;
@@ -25,11 +26,10 @@ body {
 /* HEADER */
 .navbar {
     width: 100%;
-    height: 100px;
-    padding: 10px 3%;
+    height: 75px;
+    padding: 8px 3%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: white;
     border-bottom: 1px solid #ddd;
     flex-shrink: 0;
@@ -38,57 +38,57 @@ body {
 .brand {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
 }
 
 .brand img {
-    width: 75px;
-    height: 75px;
+    width: 55px;
+    height: 55px;
     object-fit: contain;
 }
 
 .brand h2 {
     color: var(--navy);
-    font-size: 38px;
+    font-size: 28px;
 }
 
-/* TOP NAVIGATION */
-nav {
+/* HOME NAVIGATION */
+.navbar nav {
     display: flex;
     align-items: center;
-    gap: 25px;
+    margin-left: 25px;
 }
 
-nav a {
+.navbar nav a {
     text-decoration: none;
     color: var(--navy);
-    font-size: 25px;
+    font-size: 15px;
     font-weight: bold;
-    padding-bottom: 10px;
+    padding: 8px 5px;
 }
 
-nav a.active {
-    border-bottom: 4px solid var(--gold);
+.navbar nav a.active {
+    border-bottom: 3px solid var(--gold);
 }
 
 /* MAIN CONTAINER */
 .admin-container {
-    width: 90%;
-    max-width: 1400px;
+    width: 92%;
+    max-width: 1200px;
     flex: 1;
     min-height: 0;
-    margin: 20px auto;
+    margin: 12px auto;
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 /* SIDEBAR */
 .sidebar {
-    width: 250px;
+    width: 210px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    padding: 20px 12px;
+    padding: 15px 10px;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -96,21 +96,20 @@ nav a.active {
 
 .sidebar h3 {
     color: var(--navy);
-    font-size: 18px;
-    padding: 12px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 8px;
 }
 
 .sidebar-link {
     width: 100%;
-    padding: 14px 12px;
+    padding: 11px 10px;
     margin-bottom: 3px;
     text-align: left;
     background-color: transparent;
     border: none;
-    text-decoration: none;
     color: var(--navy);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     border-radius: 4px;
     cursor: pointer;
@@ -131,7 +130,7 @@ nav a.active {
     min-height: 0;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 16px;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -152,20 +151,20 @@ nav a.active {
 
 /* WELCOME SECTION */
 .welcome-section {
-    padding-bottom: 18px;
+    padding-bottom: 13px;
     border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .welcome-section h2 {
     color: var(--navy);
-    font-size: 24px;
-    margin-bottom: 8px;
+    font-size: 20px;
+    margin-bottom: 6px;
 }
 
 .welcome-section p {
     color: #777;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.5;
 }
 
@@ -173,53 +172,52 @@ nav a.active {
 .summary-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    gap: 13px;
 }
 
 .summary-card {
-    padding: 20px;
+    padding: 15px;
     background-color: #F8F9FB;
     border: 1px solid #ddd;
-    border-left: 4px solid var(--green);
+    border-left: 3px solid var(--green);
     border-radius: 5px;
 }
 
 .summary-card p {
     color: #555;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .summary-card h3 {
     color: var(--navy);
-    font-size: 30px;
-    margin-bottom: 8px;
+    font-size: 25px;
+    margin-bottom: 5px;
 }
 
 .summary-card small {
     color: #777;
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: 10px;
 }
 
 /* SECTION TITLE */
 .section-title {
-    padding-bottom: 15px;
+    padding-bottom: 12px;
     border-bottom: 1px solid #ddd;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
     flex-shrink: 0;
 }
 
 .section-title h2 {
     color: var(--navy);
-    font-size: 21px;
-    margin-bottom: 6px;
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 
 .section-title p {
     color: #777;
-    font-size: 13px;
+    font-size: 11px;
 }
 
 /* TRANSACTION AND RECEIPT SECTIONS */
@@ -230,7 +228,40 @@ nav a.active {
     overflow: hidden;
 }
 
-/* SCROLLABLE TABLE AREA */
+/* SEARCH AND FILTER */
+.transaction-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+}
+
+.transaction-controls input {
+    flex: 1;
+    min-width: 0;
+    padding: 9px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    font-size: 12px;
+}
+
+.transaction-controls select {
+    width: 155px;
+    padding: 9px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    color: #555;
+    font-size: 12px;
+}
+
+.transaction-controls input:focus,
+.transaction-controls select:focus {
+    border-color: var(--navy);
+}
+
+/* SCROLLABLE TABLE */
 .section-scroll {
     width: 100%;
     flex: 1;
@@ -238,11 +269,10 @@ nav a.active {
     overflow: auto;
 }
 
-/* TABLE */
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px;
+    font-size: 11px;
     text-align: left;
 }
 
@@ -255,7 +285,7 @@ thead {
 }
 
 th, td {
-    padding: 13px 10px;
+    padding: 10px 8px;
     border-bottom: 1px solid #ddd;
     vertical-align: middle;
 }
@@ -273,17 +303,34 @@ tbody tr:hover {
     background-color: #F8F9FB;
 }
 
-/* STATUS */
+/* CLICKABLE STUDENT NAME */
+.student-name {
+    background: none;
+    border: none;
+    color: var(--navy);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+}
+
+.student-name:hover {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+/* CLAIMING STATUS */
 .status {
     display: inline-block;
-    padding: 5px 9px;
+    padding: 4px 7px;
     border-radius: 3px;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: bold;
     white-space: nowrap;
 }
 
-.status.completed {
+.status.claimed {
     background-color: #E5F4E9;
     color: var(--green);
 }
@@ -306,37 +353,136 @@ td a:hover {
     text-decoration: underline;
 }
 
-/* REPORT CARDS */
-.report-container {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 15px;
-}
-
-.report-card {
+/* NO TRANSACTIONS */
+.no-transactions {
     padding: 20px;
-    background-color: #F8F9FB;
-    border: 1px solid #ddd;
-    border-left: 4px solid var(--green);
-    border-radius: 5px;
+    text-align: center;
+    color: #777;
+    font-size: 12px;
 }
 
-.report-card label {
+/* EMPTY SECTIONS */
+.empty-section {
+    padding: 20px;
+    color: #777;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* MODAL BACKGROUND */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+/* MODAL BOX */
+.claim-modal {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 7px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* MODAL HEADER */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.modal-header h2 {
+    color: var(--navy);
+    font-size: 17px;
+}
+
+.close-modal {
+    border: none;
+    background: none;
+    font-size: 25px;
+    color: #777;
+    cursor: pointer;
+}
+
+/* MODAL DETAILS */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-detail label {
     display: block;
     color: #777;
-    font-size: 13px;
-    margin-bottom: 12px;
+    font-size: 11px;
+    margin-bottom: 4px;
 }
 
-.report-card h3 {
-    color: var(--navy);
-    font-size: 23px;
+.modal-detail p {
+    color: #333;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.modal-detail select {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    font-size: 12px;
+    background-color: white;
+}
+
+/* MODAL BUTTONS */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background-color: #eee;
+    color: #555;
+}
+
+.save-button {
+    background-color: var(--navy);
+    color: white;
+}
+
+.save-button:hover {
+    background-color: var(--green);
 }
 
 /* FOOTER */
 footer {
     width: 100%;
-    height: 45px;
+    height: 38px;
     flex-shrink: 0;
     display: flex;
     justify-content: center;
@@ -348,12 +494,12 @@ footer {
         #E6A12E 100%
     );
     color: white;
-    font-size: 14px;
-    padding: 10px;
+    font-size: 11px;
+    padding: 8px;
     text-align: center;
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE */
 @media (max-width: 800px) {
 
     .admin-container {
@@ -362,153 +508,133 @@ footer {
     }
 
     .sidebar {
-        width: 190px;
+        width: 175px;
     }
 
     .brand img {
-        width: 55px;
-        height: 55px;
+        width: 45px;
+        height: 45px;
     }
 
     .brand h2 {
-        font-size: 28px;
-    }
-
-    nav a {
-        font-size: 18px;
+        font-size: 23px;
     }
 
     .admin-content {
-        padding: 15px;
-    }
-
-    .summary-container,
-    .report-container {
-        gap: 10px;
-    }
-
-    .summary-card,
-    .report-card {
-        padding: 13px;
+        padding: 12px;
     }
 
     table {
-        min-width: 650px;
+        min-width: 600px;
     }
 }
 
-/* MOBILE DESIGN */
+/* MOBILE */
 @media (max-width: 600px) {
 
     .navbar {
-        height: 70px;
-        padding: 8px 4%;
+        height: 60px;
+        padding: 6px 4%;
     }
 
     .brand {
-        gap: 8px;
+        gap: 7px;
     }
 
     .brand img {
-        width: 42px;
-        height: 42px;
+        width: 36px;
+        height: 36px;
     }
 
     .brand h2 {
-        font-size: 22px;
+        font-size: 19px;
     }
 
-    nav a {
-        font-size: 15px;
+    .navbar nav {
+        margin-left: 12px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
     }
 
     .admin-container {
         width: 95%;
-        gap: 8px;
+        gap: 7px;
     }
 
     .sidebar {
-        width: 135px;
-        padding: 10px 5px;
+        width: 120px;
+        padding: 8px 5px;
     }
 
     .sidebar h3 {
-        font-size: 13px;
-        padding: 8px;
+        font-size: 11px;
+        padding: 7px;
     }
 
     .sidebar-link {
-        padding: 10px 7px;
-        font-size: 10px;
+        padding: 9px 6px;
+        font-size: 9px;
     }
 
     .admin-content {
-        padding: 10px;
-    }
-
-    .welcome-section {
-        padding-bottom: 12px;
-        margin-bottom: 12px;
+        padding: 9px;
     }
 
     .welcome-section h2 {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .welcome-section p {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .summary-container {
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 7px;
     }
 
     .summary-card {
-        padding: 10px;
+        padding: 9px;
     }
 
     .summary-card p {
-        font-size: 12px;
-        margin-bottom: 5px;
+        font-size: 10px;
     }
 
     .summary-card h3 {
-        font-size: 22px;
-        margin-bottom: 4px;
-    }
-
-    .summary-card small {
-        font-size: 10px;
+        font-size: 19px;
     }
 
     .section-title h2 {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .section-title p {
+        font-size: 10px;
+    }
+
+    .transaction-controls {
+        flex-direction: column;
+    }
+
+    .transaction-controls input,
+    .transaction-controls select {
+        width: 100%;
         font-size: 11px;
     }
 
-    .report-container {
-        grid-template-columns: 1fr;
-        gap: 8px;
+    .claim-modal {
+        padding: 15px;
     }
 
-    .report-card {
-        padding: 10px;
-    }
-
-    .report-card label {
-        font-size: 11px;
-        margin-bottom: 6px;
-    }
-
-    .report-card h3 {
-        font-size: 18px;
+    .modal-header h2 {
+        font-size: 15px;
     }
 
     footer {
-        font-size: 10px;
+        height: 32px;
+        font-size: 9px;
     }
 }

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,29 +8,28 @@
     <title>Admin Dashboard - NWSSU</title>
 
     <link rel="stylesheet" href="css/admin-homepage.css">
+    <script src="js/admin-homepage.js" defer></script>
 </head>
+
 <body>
 
     <!-- HEADER -->
     <header class="navbar">
-
         <div class="brand">
             <img src="photos/nwssu-logo.png" alt="NWSSU Logo">
             <h2>NWSSU</h2>
+
+            <nav>
+                <a href="admin-homepage.html" class="active">Home</a>
+            </nav>
         </div>
-
-        <nav>
-            <a href="admin-homepage.html" class="active">Home</a>
-        </nav>
-
     </header>
 
-    <!-- MAIN DASHBOARD -->
+    <!-- MAIN CONTAINER -->
     <main class="admin-container">
 
         <!-- SIDEBAR -->
         <aside class="sidebar">
-
             <h3>Admin Dashboard</h3>
 
             <button class="sidebar-link active" data-section="dashboard">
@@ -47,30 +47,25 @@
             <button class="sidebar-link" data-section="reports">
                 Reports
             </button>
-
         </aside>
 
         <!-- MAIN CONTENT -->
         <section class="admin-content">
 
             <!-- DASHBOARD -->
-            <div class="content-section active" id="dashboard">
+            <section id="dashboard" class="content-section active">
 
                 <div class="welcome-section">
                     <h2>Welcome, Administrator!</h2>
-                    <p>
-                        Monitor student online payments and manage
-                        payment records of Northwest Samar State University.
-                    </p>
+                    <p>Manage student accounts, monitor payment transactions, and oversee the NWSSU Online Payment System.</p>
                 </div>
 
-                <!-- SUMMARY CARDS -->
                 <div class="summary-container">
 
                     <div class="summary-card">
                         <p>Students Paid Online</p>
                         <h3>1,250</h3>
-                        <small>Number of students who made online payments</small>
+                        <small>Total students who made online payments</small>
                     </div>
 
                     <div class="summary-card">
@@ -86,180 +81,234 @@
                     </div>
 
                     <div class="summary-card">
-                        <p>Generated Reports</p>
+                        <p>Reports Generated</p>
                         <h3>12</h3>
-                        <small>Total payment reports generated</small>
+                        <small>Total generated payment reports</small>
                     </div>
 
                 </div>
-
-            </div>
+            </section>
 
             <!-- TRANSACTION RECORDS -->
-            <div class="content-section" id="transactions">
+            <section id="transactions" class="content-section">
 
                 <div class="section-title">
                     <h2>Transaction Records</h2>
-                    <p>View and monitor all student payment transactions.</p>
+                    <p>View student payments and update their claiming status.</p>
                 </div>
 
+                <!-- SEARCH AND FILTER -->
+                <div class="transaction-controls">
+
+                    <input
+                        type="text"
+                        id="transactionSearch"
+                        placeholder="Search student name or transaction ID..."
+                    >
+
+                    <select id="statusFilter">
+                        <option value="all">All Claiming Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="claimed">Claimed</option>
+                    </select>
+
+                </div>
+
+                <!-- TABLE -->
                 <div class="section-scroll">
 
-                    <table>
+                    <table id="transactionTable">
+
                         <thead>
                             <tr>
                                 <th>Date</th>
                                 <th>Transaction ID</th>
                                 <th>Student Name</th>
-                                <th>Purchased Item</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>October 28, 2026</td>
-                                <td>2775267</td>
-                                <td>Jeolee Ong</td>
-                                <td>Student ID Lace</td>
-                                <td>₱80.00</td>
-                                <td><span class="status completed">Paid</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>October 27, 2026</td>
-                                <td>2775268</td>
-                                <td>Maria Cruz</td>
-                                <td>School Uniform</td>
-                                <td>₱650.00</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>October 26, 2026</td>
-                                <td>2775269</td>
-                                <td>John Reyes</td>
-                                <td>Student Handbook</td>
-                                <td>₱150.00</td>
-                                <td><span class="status completed">Paid</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>October 25, 2026</td>
-                                <td>2775270</td>
-                                <td>Anna Santos</td>
-                                <td>COR</td>
-                                <td>₱50.00</td>
-                                <td><span class="status completed">Paid</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-
-            </div>
-
-            <!-- RECEIPT MANAGEMENT -->
-            <div class="content-section" id="receipts">
-
-                <div class="section-title">
-                    <h2>Receipt Management</h2>
-                    <p>View and manage receipts issued for student payments.</p>
-                </div>
-
-                <div class="section-scroll">
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Receipt Number</th>
-                                <th>Student Name</th>
-                                <th>Transaction ID</th>
-                                <th>Amount</th>
+                                <th>Student Number</th>
+                                <th>Purchased Items</th>
+                                <th>Total Amount</th>
+                                <th>Claiming Status</th>
                                 <th>Receipt</th>
                             </tr>
                         </thead>
 
-                        <tbody>
-                            <tr>
-                                <td>October 28, 2026</td>
-                                <td>R-2026-001</td>
-                                <td>Jeolee Ong</td>
-                                <td>2775267</td>
-                                <td>₱80.00</td>
+                        <tbody id="transactionTableBody">
+
+                            <tr data-status="pending">
+                                <td>November 5, 2026</td>
+                                <td>2775280</td>
+                                <td>
+                                    <button class="student-name" type="button">
+                                        Jeolee Ong
+                                    </button>
+                                </td>
+                                <td>2024-234-1</td>
+                                <td>COR, Student ID Lace</td>
+                                <td>₱540.00</td>
+                                <td>
+                                    <span class="status pending">Pending</span>
+                                </td>
                                 <td><a href="#">View Receipt</a></td>
                             </tr>
 
-                            <tr>
-                                <td>October 26, 2026</td>
-                                <td>R-2026-002</td>
-                                <td>John Reyes</td>
-                                <td>2775269</td>
-                                <td>₱150.00</td>
+                            <tr data-status="claimed">
+                                <td>November 4, 2026</td>
+                                <td>2775275</td>
+                                <td>
+                                    <button class="student-name" type="button">
+                                        Maria Santos
+                                    </button>
+                                </td>
+                                <td>2024-235-2</td>
+                                <td>School Uniform</td>
+                                <td>₱650.00</td>
+                                <td>
+                                    <span class="status claimed">Claimed</span>
+                                </td>
                                 <td><a href="#">View Receipt</a></td>
                             </tr>
 
-                            <tr>
-                                <td>October 25, 2026</td>
-                                <td>R-2026-003</td>
-                                <td>Anna Santos</td>
+                            <tr data-status="pending">
+                                <td>November 3, 2026</td>
                                 <td>2775270</td>
-                                <td>₱50.00</td>
+                                <td>
+                                    <button class="student-name" type="button">
+                                        John Reyes
+                                    </button>
+                                </td>
+                                <td>2024-236-3</td>
+                                <td>Test Booklet</td>
+                                <td>₱40.00</td>
+                                <td>
+                                    <span class="status pending">Pending</span>
+                                </td>
                                 <td><a href="#">View Receipt</a></td>
                             </tr>
+
+                            <tr data-status="claimed">
+                                <td>November 2, 2026</td>
+                                <td>2775267</td>
+                                <td>
+                                    <button class="student-name" type="button">
+                                        Angela Cruz
+                                    </button>
+                                </td>
+                                <td>2024-237-4</td>
+                                <td>Student ID Lace, Handbook</td>
+                                <td>₱230.00</td>
+                                <td>
+                                    <span class="status claimed">Claimed</span>
+                                </td>
+                                <td><a href="#">View Receipt</a></td>
+                            </tr>
+
                         </tbody>
+
                     </table>
 
+                    <p id="noTransactions" class="no-transactions" hidden>
+                        No matching transactions found.
+                    </p>
+
                 </div>
+            </section>
 
-            </div>
-
-            <!-- REPORTS -->
-            <div class="content-section" id="reports">
+            <!-- RECEIPT MANAGEMENT -->
+            <section id="receipts" class="content-section">
 
                 <div class="section-title">
-                    <h2>Payment Reports</h2>
-                    <p>Overview of the university's online payment activities.</p>
+                    <h2>Receipt Management</h2>
+                    <p>View and manage payment receipts issued to students.</p>
                 </div>
 
-                <div class="report-container">
+                <div class="empty-section">
+                    Receipt management content will appear here.
+                </div>
 
-                    <div class="report-card">
-                        <label>Total Online Payments</label>
-                        <h3>₱125,000.00</h3>
-                    </div>
+            </section>
 
-                    <div class="report-card">
-                        <label>Total Completed Transactions</label>
-                        <h3>825</h3>
-                    </div>
+            <!-- REPORTS -->
+            <section id="reports" class="content-section">
 
-                    <div class="report-card">
-                        <label>Total Pending Transactions</label>
-                        <h3>25</h3>
-                    </div>
+                <div class="section-title">
+                    <h2>Reports</h2>
+                    <p>View and manage online payment reports.</p>
+                </div>
 
-                    <div class="report-card">
-                        <label>Reporting Period</label>
-                        <h3>October 2026</h3>
-                    </div>
+                <div class="empty-section">
+                    Payment reports will appear here.
+                </div>
 
+            </section>
+
+        </section>
+    </main>
+
+    <!-- CLAIMING STATUS MODAL -->
+    <div class="modal-overlay" id="claimModal">
+
+        <div class="claim-modal">
+
+            <div class="modal-header">
+                <h2>Update Claiming Status</h2>
+                <button type="button" id="closeModal" class="close-modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="modal-detail">
+                    <label>Student Name</label>
+                    <p id="modalStudentName">-</p>
+                </div>
+
+                <div class="modal-detail">
+                    <label>Transaction ID</label>
+                    <p id="modalTransactionId">-</p>
+                </div>
+
+                <div class="modal-detail">
+                    <label>Student Number</label>
+                    <p id="modalStudentNumber">-</p>
+                </div>
+
+                <div class="modal-detail">
+                    <label>Purchased Items</label>
+                    <p id="modalPurchasedItems">-</p>
+                </div>
+
+                <div class="modal-detail">
+                    <label>Total Amount</label>
+                    <p id="modalTotalAmount">-</p>
+                </div>
+
+                <div class="modal-detail">
+                    <label>Claiming Status</label>
+
+                    <select id="claimingStatus">
+                        <option value="pending">Pending</option>
+                        <option value="claimed">Claimed</option>
+                    </select>
                 </div>
 
             </div>
 
-        </section>
+            <div class="modal-actions">
+                <button type="button" id="cancelModal" class="cancel-button">
+                    Cancel
+                </button>
 
-    </main>
+                <button type="button" id="saveStatus" class="save-button">
+                    Save Changes
+                </button>
+            </div>
+
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer>
         © 2026 Northwest Samar State University | Online Payment System
     </footer>
-
-    <script src="js/admin-homepage.js"></script>
 
 </body>
 </html>
