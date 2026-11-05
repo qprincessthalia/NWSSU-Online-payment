@@ -1,0 +1,19 @@
+.navbar nav {
+    align-items: center;
+}
+
+.logout-button {
+    padding: 7px 12px;
+    color: #163D70;
+    background: white;
+    border: 1px solid #163D70;
+    border-radius: 4px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    color: white;
+    background: #163D70;
+}

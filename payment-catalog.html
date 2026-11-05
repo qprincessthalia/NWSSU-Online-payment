@@ -8,6 +8,7 @@
     <title>Payment Catalog - NWSSU</title>
 
     <link rel="stylesheet" href="css/payment-catalog.css">
+    <link rel="stylesheet" href="css/student-header.css">
 </head>
 <body>
 
@@ -20,8 +21,9 @@
         </div>
 
         <nav>
-            <a href="student-homepage.html">Home</a>
+            <a href="student-dashboard.html">Dashboard</a>
             <a href="payment-catalog.html" class="active">Catalog</a>
+            <a href="cart.html">Cart</a>
         </nav>
 
     </header>
@@ -144,7 +146,7 @@
 
     <!-- BUY PRODUCT BUTTON -->
     <div class="buy-container">
-        <button type="button" class="buy-button" disabled>
+        <button type="button" class="buy-button" id="buyButton" disabled>
             Buy Product
         </button>
     </div>
@@ -154,7 +156,9 @@
         <p>© 2026 Northwest Samar State University | Online Payment System</p>
     </footer>
 
+    <script src="js/payment-store.js"></script>
     <script src="js/payment-catalog.js"></script>
+    <script src="js/student-session.js"></script>
 
 </body>
 </html>

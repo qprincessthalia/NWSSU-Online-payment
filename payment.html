@@ -8,88 +8,114 @@
     <title>Payment - NWSSU Online Payment System</title>
 
     <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="css/student-header.css">
 </head>
+
 <body>
 
     <!-- Navigation Bar -->
-<header class="navbar">
+    <header class="navbar">
 
-    <div class="brand">
-        <img src="photos/nwssu-logo.png" alt="NWSSU Logo">
-        <h2>NWSSU</h2>
-    </div>
+        <div class="brand">
+            <img src="photos/nwssu-logo.png" alt="NWSSU Logo">
+            <span>NWSSU</span>
+        </div>
 
-    <nav>
-        <a href="student-homepage.html">Home</a>
-        <a href="cart.html" class="active">Cart</a>
-    </nav>
+        <nav>
+            <a href="student-homepage.html">Home</a>
+            <a href="student-dashboard.html">Dashboard</a>
+            <a href="payment-catalog.html">Catalog</a>
+            <a href="cart.html" class="active">Cart</a>
+            <a href="student-transaction-history.html">Transactions</a>
+            <a href="student-profile.html">Profile</a>
+        </nav>
 
-</header>
+    </header>
+
     <!-- Main Content -->
     <main class="payment-container">
 
-        <h1>Payment</h1>
-        <p class="subtitle">Review your order and payment details.</p>
+        <h1>GCash Payment</h1>
+        <p class="subtitle">
+            Scan the QR code and pay the exact amount of your order.
+        </p>
 
         <!-- Order Summary -->
         <section class="payment-section">
+
             <h2>Order Summary</h2>
 
-            <div class="order-item">
-                <span>COR</span>
-                <span>₱30.00</span>
-            </div>
-
-            <div class="order-item">
-                <span>Student ID Lace</span>
-                <span>₱80.00</span>
-            </div>
-
-            <div class="order-item">
-                <span>School Uniform</span>
-                <span>₱450.00</span>
-            </div>
+            <div id="orderItems"></div>
 
             <div class="total">
                 <span>Total Amount</span>
-                <span>₱560.00</span>
+                <span id="orderTotal">₱0.00</span>
             </div>
+
         </section>
 
-        <!-- Payment Method -->
-        <section class="payment-section">
-            <h2>Payment Method</h2>
+        <!-- QR Payment -->
+        <section class="payment-section qr-payment-section">
 
-            <label class="payment-option">
-                <input type="radio" name="payment" value="gcash" checked>
-                GCash
-            </label>
-        </section>
+            <h2>Scan to Pay</h2>
 
-        <!-- Payment Details -->
-        <section class="payment-section">
-            <h2>Payment Details</h2>
-
-            <div class="form-group">
-                <label for="proof">Upload Payment Receipt</label>
-                <input type="file" id="proof" accept="image/*,.pdf" disabled>
+            <div class="demo-warning">
+                <strong>DEMO MODE:</strong>
+                This QR code is for testing purposes only.
+                It is NOT connected to the university's actual GCash account.
             </div>
+
+            <p>Scan the QR code using your GCash application.</p>
+
+            <div class="qr-container">
+                <div id="gcashQR">
+                    Generating QR Code...
+                </div>
+            </div>
+
+            <p>Amount to Pay:</p>
+
+            <div class="payment-amount" id="qrAmount">
+                ₱0.00
+            </div>
+
+            <p class="payment-status-note">
+                Please pay the exact amount displayed above.
+                In the actual system, payment confirmation must be
+                verified by the University Cashier.
+            </p>
+
         </section>
 
-        <!-- Action Buttons -->
+        <!-- Payment Actions -->
         <div class="payment-actions">
-            <a href="cart.html" class="back-button">Back to Cart</a>
-            <button type="button" class="pay-button" disabled>
-                Pay Now
-            </button>
+
+            <a href="cart.html" class="back-button">
+                Back to Cart
+            </a>
+
+            <a href="payment-receipt.html" id="confirmPayment" class="pay-button">
+                Confirm Payment
+            </a>
+
         </div>
 
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Northwest Samar State University | Online Payment System</p>
+        <p>
+            © 2026 Northwest Samar State University |
+            Online Payment System
+        </p>
     </footer>
+
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script src="js/payment-store.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/student-session.js"></script>
 
 </body>
 </html>

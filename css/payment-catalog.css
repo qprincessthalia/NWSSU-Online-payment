@@ -28,48 +28,6 @@ body {
     background-color: var(--background);
 }
 
-/* HEADER */
-.navbar {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 12px 35px;
-    background-color: white;
-    border-bottom: 1px solid #ddd;
-    flex-shrink: 0;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--navy);
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.brand img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-}
-
-.navbar nav {
-    display: flex;
-    gap: 25px;
-}
-
-.navbar nav a {
-    text-decoration: none;
-    color: var(--navy);
-    font-weight: bold;
-}
-
-.navbar nav a.active {
-    border-bottom: 2px solid var(--navy);
-    padding-bottom: 6px;
-}
-
 /* MAIN */
 main {
     flex: 1;
@@ -178,14 +136,14 @@ main {
 
 /* BUY PRODUCT BUTTON */
 .buy-container {
-    width: 100%;
+    width: 90%;
+    max-width: 1000px;
+    margin: 15px auto 20px;
+    padding: 0;
+
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
-    margin-top: 15px;
-    margin-bottom: 20px;
-    padding: 0;
 }
 
 .buy-button {
@@ -201,7 +159,16 @@ main {
     font-size: 16px;
     font-weight: bold;
 
-    cursor: default;
+    cursor: pointer;
+}
+
+.buy-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.buy-button:hover:not(:disabled) {
+    background-color: #106B38;
 }
 
 /* FOOTER */
@@ -232,28 +199,6 @@ footer {
 
 /* SMALL SCREEN */
 @media screen and (max-width: 600px) {
-
-    .navbar {
-        padding: 12px 15px;
-        gap: 20px;
-    }
-
-    .brand {
-        font-size: 18px;
-    }
-
-    .brand img {
-        width: 35px;
-        height: 35px;
-    }
-
-    .navbar nav {
-        gap: 12px;
-    }
-
-    .navbar nav a {
-        font-size: 12px;
-    }
 
     main {
         width: 94%;
@@ -323,8 +268,9 @@ footer {
     }
 
     .buy-container {
-        margin-top: 10px;
-        margin-bottom: 10px;
+        width: 94%;
+        margin-top: 12px;
+        margin-bottom: 15px;
     }
 
     footer {

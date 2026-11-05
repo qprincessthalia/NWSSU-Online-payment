@@ -8,6 +8,7 @@
     <title>Payment Receipt - NWSSU Online Payment System</title>
 
     <link rel="stylesheet" href="css/payment-receipt.css">
+    <link rel="stylesheet" href="css/student-header.css">
 </head>
 <body>
 
@@ -16,11 +17,11 @@
 
         <div class="brand">
             <img src="photos/nwssu-logo.png" alt="NWSSU Logo">
-            <h2>NWSSU</h2>
+            <span>NWSSU</span>
         </div>
 
         <nav>
-            <a href="student-homepage.html">Home</a>
+            <a href="student-dashboard.html">Dashboard</a>
             <a href="payment-catalog.html">Catalog</a>
             <a href="cart.html">Cart</a>
         </nav>
@@ -30,78 +31,69 @@
     <!-- MAIN CONTENT -->
     <main class="receipt-container">
 
+        <div class="receipt-header">
+            <h1>Payment Receipt</h1>
+            <p>Your transaction details are shown below.</p>
+        </div>
 
         <section class="receipt-card">
 
             <div class="receipt-status">
-                <h2>Payment Receipt</h2>
-                <p>Your payment has been recorded.</p>
+                <h2>Demo Checkout Complete</h2>
+                <p>No real payment was processed.</p>
             </div>
 
             <div class="receipt-details">
 
                 <div class="detail-row">
-                    <span>Operating Number</span>
-                    <strong>2775280</strong>
+                    <span>Student Account</span>
+                    <strong id="studentName"></strong>
                 </div>
 
                 <div class="detail-row">
-                    <span>Student Number</span>
-                    <strong>2024-221-1</strong>
+                    <span>Date and Time</span>
+                    <strong id="purchaseDate"></strong>
                 </div>
 
                 <div class="detail-row">
-                    <span>Date of Purchase</span>
-                    <strong>September 29, 2026</strong>
+                    <span>Transaction ID</span>
+                    <strong id="transactionId"></strong>
                 </div>
-
-                <div class="detail-row">
-                    <span>Time of Purchase</span>
-                    <strong>10:30 AM</strong>
-                </div>
-
                 <div class="divider"></div>
 
                 <h3>Product Purchased</h3>
-
-                <div class="product-row">
-                    <span>COR</span>
-                    <strong>₱30.00</strong>
-                </div>
-
-                <div class="product-row">
-                    <span>Student ID Lace</span>
-                    <strong>₱80.00</strong>
-                </div>
-
-                <div class="product-row">
-                    <span>School Uniform</span>
-                    <strong>₱450.00</strong>
-                </div>
+                <div id="purchasedProducts"></div>
+                <div class="divider"></div>
+                <h3>Claiming Office</h3>
+                <div id="claimingOffices"></div>
 
                 <div class="divider"></div>
 
                 <div class="detail-row">
                     <span>Payment Method</span>
-                    <strong>GCash</strong>
+                    <strong id="paymentMethod"></strong>
+                </div>
+                <div class="detail-row">
+                    <span>Proof file</span>
+                    <strong id="proofName"></strong>
                 </div>
 
                 <div class="total-row">
                     <span>Total Amount Paid</span>
-                    <strong>₱560.00</strong>
+                    <strong id="receiptTotal"></strong>
                 </div>
 
             </div>
 
             <p class="receipt-note">
-                Please keep this receipt as proof of your transaction.
+                Keep this demo record for reference; it is not proof of a processed payment.
             </p>
 
         </section>
 
         <div class="receipt-actions">
             <button type="button" class="download-button">
-                Download Receipt
+                Print / Save Receipt
             </button>
         </div>
 
@@ -112,5 +104,8 @@
         <p>© 2026 Northwest Samar State University | Online Payment System</p>
     </footer>
 
+    <script src="js/payment-store.js"></script>
+    <script src="js/payment-receipt.js"></script>
+    <script src="js/student-session.js"></script>
 </body>
 </html>

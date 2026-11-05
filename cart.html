@@ -7,6 +7,7 @@
     <title>My Cart - NWSSU</title>
 
     <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/student-header.css">
 </head>
 
 <body>
@@ -20,8 +21,10 @@
         </div>
 
         <nav>
-            <a href="student-homepage.html">Home</a>
+            <a href="student-dashboard.html">Dashboard</a>
+            <a href="payment-catalog.html">Catalog</a>
             <a href="cart.html" class="active">Cart</a>
+           
         </nav>
 
     </header>
@@ -35,82 +38,26 @@
         </section>
 
         <!-- CART ITEMS -->
-        <section class="cart-list">
-
-            <div class="cart-item">
-
-                <div class="item-details">
-                    <h3>COR</h3>
-                    <p>Certificate of Registration</p>
-                    <span>₱30.00 each</span>
-                </div>
-
-                <div class="quantity-control">
-                    <button class="quantity-button" type="button" disabled>−</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-button" type="button" disabled>+</button>
-                </div>
-
-                <span class="item-price">₱30.00</span>
-
-            </div>
-
-            <div class="cart-item">
-
-                <div class="item-details">
-                    <h3>Student ID Lace</h3>
-                    <p>Official university ID lace</p>
-                    <span>₱80.00 each</span>
-                </div>
-
-                <div class="quantity-control">
-                    <button class="quantity-button" type="button" disabled>−</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-button" type="button" disabled>+</button>
-                </div>
-
-                <span class="item-price">₱80.00</span>
-
-            </div>
-
-            <div class="cart-item">
-
-                <div class="item-details">
-                    <h3>School Uniform</h3>
-                    <p>Student</p>
-                    <span>₱450.00 each</span>
-                </div>
-
-                <div class="quantity-control">
-                    <button class="quantity-button" type="button" disabled>−</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-button" type="button" disabled>+</button>
-                </div>
-
-                <span class="item-price">₱450.00</span>
-
-            </div>
-
-        </section>
+        <section class="cart-list" id="cartList" aria-live="polite"></section>
 
         <!-- TOTAL -->
         <section class="cart-total">
             <h3>
                 Total Amount:
-                <span>₱560.00</span>
+                <span id="cartTotal">₱0.00</span>
             </h3>
         </section>
 
         <!-- CART ACTION BUTTONS -->
         <div class="cart-actions">
 
-            <button type="button" class="back-button" disabled>
+            <a href="payment-catalog.html" class="back-button">
                 ← Continue Shopping
-            </button>
+            </a>
 
-            <button type="button" class="payment-button" disabled>
+            <a href="payment.html" class="payment-button disabled" id="checkoutButton" aria-disabled="true">
                 Make Payment →
-            </button>
+            </a>
 
         </div>
 
@@ -121,5 +68,8 @@
         <p>© 2026 Northwest Samar State University | Online Payment System</p>
     </footer>
 
+    <script src="js/payment-store.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/student-session.js"></script>
 </body>
 </html>

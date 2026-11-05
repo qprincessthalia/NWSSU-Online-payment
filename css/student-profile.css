@@ -23,68 +23,6 @@ body {
     color: #333;
 }
 
-/* HEADER */
-.navbar {
-    width: 100%;
-    height: 75px;
-    padding: 8px 3%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 35px;
-    background-color: white;
-    border-bottom: 1px solid #ddd;
-    flex-shrink: 0;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.brand img {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-}
-
-.brand h2 {
-    color: var(--navy);
-    font-size: 25px;
-}
-
-/* NAVIGATION */
-nav {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-nav a {
-    position: relative;
-    text-decoration: none;
-    color: var(--navy);
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 0;
-}
-
-nav a:hover {
-    color: var(--green);
-}
-
-/* ACTIVE NAVIGATION LINK */
-nav a.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--navy);
-}
-
 /* MAIN CONTENT */
 .profile-container {
     width: 90%;
@@ -174,30 +112,6 @@ footer {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 600px) {
-
-    .navbar {
-        height: auto;
-        min-height: 65px;
-        padding: 8px 4%;
-        gap: 20px;
-    }
-
-    .brand img {
-        width: 35px;
-        height: 35px;
-    }
-
-    .brand h2 {
-        font-size: 20px;
-    }
-
-    nav {
-        gap: 15px;
-    }
-
-    nav a {
-        font-size: 13px;
-    }
 
     .profile-container {
         width: 92%;

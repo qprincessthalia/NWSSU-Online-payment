@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // STUDENT LOGIN
         if (username === "student") {
 
+            sessionStorage.setItem("studentUsername", username);
             window.location.href = "student-homepage.html";
 
         }
@@ -19,7 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // ADMIN LOGIN
         else if (username === "admin") {
 
-           window.location.href = "admin-homepage.html";
+            sessionStorage.setItem("adminUsername", username);
+            window.location.href = "admin-homepage.html";
 
         }
 

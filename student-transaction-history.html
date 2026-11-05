@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transaction History - NWSSU</title>
+
+    <link rel="stylesheet" href="css/student-transaction-history.css">
+    <link rel="stylesheet" href="css/student-header.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="navbar">
+
+        <div class="brand">
+            <img src="photos/nwssu-logo.png" alt="NWSSU Logo">
+            <span>NWSSU</span>
+        </div>
+
+        <nav>
+            <a href="student-homepage.html">Home</a>
+            <a href="student-dashboard.html">Dashboard</a>
+            <a href="student-transaction-history.html" class="active">Transactions</a>
+            
+        </nav>
+
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="transaction-container">
+
+        <section class="transaction-card">
+
+            <!-- TRANSACTION HEADER -->
+            <div class="transaction-header">
+
+                <div class="transaction-title">
+                    <h2>Transaction History</h2>
+                    <p>View your previous payment transactions and receipts.</p>
+                </div>
+
+                <div class="summary-group total-transactions">
+                    <label>Total Transactions</label>
+                    <p>4</p>
+                </div>
+
+            </div>
+
+            <!-- TRANSACTION LIST -->
+            <div class="transaction-list">
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Transaction ID</th>
+                            <th>Purchased Items</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                            <th>Receipt</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- TRANSACTION 4 -->
+
+                        <tr>
+                            <td>September 29, 2026</td>
+
+                            <td>2775280</td>
+
+                            <td>
+                                <div class="item-list">
+                                    <span>COR</span>
+                                    <span>STUDENT ID LACE</span>
+                                    <span>School uniform</span>
+                                    <small>3 Item</small>
+                                </div>
+                            </td>
+
+                            <td class="amount">₱540.00</td>
+
+                            <td>
+                                <span class="status paid">Unclaimed</span>
+                            </td>
+
+                            <td>
+                                <a href="#">View</a>
+                            </td>
+                        </tr>
+
+                        <!-- TRANSACTION 3 -->
+
+                        <tr>
+                            <td>September 22, 2026</td>
+
+                            <td>2775275</td>
+
+                            <td>
+                                <div class="item-list">
+                                    <span>School Uniform</span>
+                                    <small>1 Item</small>
+                                </div>
+                            </td>
+
+                            <td class="amount">₱650.00</td>
+
+                            <td>
+                                <span class="status paid">Claimed</span>
+                            </td>
+
+                            <td>
+                                <a href="#">View</a>
+                            </td>
+                        </tr>
+
+                        <!-- TRANSACTION 2 -->
+                        <tr>
+                            <td>September 21, 2026</td>
+
+                            <td>2775270</td>
+
+                            <td>
+                                <div class="item-list">
+                                    <span>Test Booklet</span>
+            
+                                    <small>1 Items</small>
+                                </div>
+                            </td>
+
+                            <td class="amount">₱40.00</td>
+
+                            <td>
+                                <span class="status pending">Claimed</span>
+                            </td>
+
+                            <td>
+                                <a href="#">View</a>
+                            </td>
+                        </tr>
+
+                        <!-- TRANSACTION 1 -->
+
+                        <tr>
+                            <td>October 28, 2026</td>
+
+                            <td>2775267</td>
+
+                            <td>
+                                <div class="item-list">
+                                    <span>Student ID Lace</span>
+                                    <span>School Uniform</span>
+                                    <span>Student Handbook</span>
+                                    <small>3 Items</small>
+                                </div>
+                            </td>
+
+                            <td class="amount">₱880.00</td>
+
+                            <td>
+                                <span class="status paid">Claimed</span>
+                            </td>
+
+                            <td>
+                                <a href="#">View</a>
+                            </td>
+                        </tr>
+
+                      
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Northwest Samar State University | Online Payment System
+    </footer>
+
+    <script src="js/student-session.js"></script>
+
+</body>
+</html>
