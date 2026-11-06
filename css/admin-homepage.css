@@ -179,7 +179,6 @@ body {
     padding: 15px;
     background-color: #F8F9FB;
     border: 1px solid #ddd;
-    border-left: 3px solid var(--green);
     border-radius: 5px;
 }
 

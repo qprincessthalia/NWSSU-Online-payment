@@ -5,7 +5,7 @@
 }
 
 :root {
-    --navy: #163D70;
+    --navy: #000000;
     --green: #168044;
     --gold: #E6A12E;
     --background: #F5F7FA;
@@ -67,7 +67,6 @@ main {
 
     background-color: #F0F6F1;
     border: 1px solid #D5E5D8;
-    border-left: 4px solid var(--green);
     border-radius: 4px;
 }
 

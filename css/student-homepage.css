@@ -179,7 +179,7 @@ main {
 
 /* DASHBOARD BUTTON */
 .dashboard-button {
-    background-color: var(--green);
+    background-color: #447d5c;
 }
 
 .dashboard-button:hover {
@@ -188,7 +188,7 @@ main {
 
 /* CATALOG BUTTON */
 .catalog-button {
-    background-color: var(--gold);
+    background-color: #a87a2d;
 }
 
 .catalog-button:hover {

@@ -1,6 +1,6 @@
 
 :root {
-    --navy: #163D70;
+    --navy: #000000;
     --green: #168044;
     --gold: #E6A12E;
     --background: #F5F7FA;
@@ -203,7 +203,6 @@ body {
     min-width: 0;
     padding: 9px 12px;
     background-color: #F8F9FB;
-    border-left: 3px solid var(--green);
     border-radius: 3px;
 }
 
