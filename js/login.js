@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
 
     const loginForm = document.getElementById("loginForm");
@@ -31,7 +32,15 @@ document.addEventListener("DOMContentLoaded", function() {
             else if (username === "admin") {
 
                 sessionStorage.setItem("adminUsername", username);
-                window.location.href = "admin-homepage.html"; // Updated: removed "pages/" if it's in the root folder
+                window.location.href = "admin-homepage.html";
+
+            }
+
+            // ADMIN 2 LOGIN
+            else if (username === "admin2") {
+
+                sessionStorage.setItem("admin2Username", username);
+                window.location.href = "admin2.html";
 
             }
 

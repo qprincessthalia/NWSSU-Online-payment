@@ -1,9 +1,13 @@
-
 (function() {
 
     const products = [
         { id: "cor", name: "COR", description: "Certificate of Registration", price: 30, claimOffice: "Registrar" },
         { id: "cog", name: "COG", description: "Certificate of Grades (per semester)", price: 20, claimOffice: "Registrar" },
+        { id: "medical-certificate", name: "Medical Certificate", description: "", price: 20 },
+        { id: "transcript-of-record", name: "Transcript of Record", description: "", price: 55 },
+        { id: "form-137", name: "Form 137", description: "", price: 20 },
+        { id: "turn-it-in", name: "Turn it in", description: "", price: 1000 },
+        { id: "chairs", name: "Chairs", description: "per day", price: 5 },
         { id: "id-replacement", name: "ID", description: "ID replacement", price: 60 },
         { id: "id-lace", name: "Student ID Lace", description: "Official university ID lace", price: 80, claimOffice: "ASBAO" },
         { id: "id-sling", name: "ID Sling", description: "Student", price: 60 },

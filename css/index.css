@@ -307,14 +307,32 @@ login:hover{
     line-height: 1.5;
 }
 
-/* FOOTER */
 footer {
-    flex-shrink: 0;
-    padding: 10px 15px;
-    background-color: #12365c;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: clamp(45px, 7.2vh, 62px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        90deg,
+        #168044 0%,
+        #168044 50%,
+        #E6A12E 100%
+    );
+
     color: white;
+    padding: 10px 15px;
+
+    font-size: clamp(10px, 1.4vw, 14px);
     text-align: center;
-    font-size: 11px;
+
+    z-index: 999;
 }
 
 /* MOBILE SCREEN */
