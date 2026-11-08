@@ -32,13 +32,12 @@ body {
 main {
     flex: 1;
     width: 90%;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 25px 0;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
 }
 
 /* HEADING */
@@ -57,14 +56,87 @@ main {
     font-size: 14px;
 }
 
-/* PRODUCT LIST */
-.product-list {
+/* CATALOG LAYOUT */
+.catalog-container {
     display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* CATEGORY SIDEBAR */
+.category-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.category-sidebar h3 {
+    color: var(--navy);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.category-button {
+    width: 100%;
+    padding: 12px 10px;
+
+    border: 1px solid #D5E5D8;
+    border-radius: 4px;
+
+    background-color: #F0F6F1;
+    color: #444;
+
+    font-size: 13px;
+    font-weight: bold;
+    text-align: left;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.category-button:hover {
+    background-color: #E0EEE3;
+    color: var(--green);
+}
+
+.category-button.active {
+    background-color: var(--green);
+    border-color: var(--green);
+    color: white;
+}
+
+/* CATALOG PRODUCTS */
+.catalog-products {
+    flex: 1;
+    min-width: 0;
+}
+
+.product-list {
+    display: none;
     flex-direction: column;
     gap: 12px;
     padding-bottom: 20px;
 }
 
+.product-list.active {
+    display: flex;
+}
+
+.product-list h2 {
+    color: var(--navy);
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* PRODUCT CARD */
 .product-card {
     width: 100%;
     display: flex;
@@ -122,6 +194,54 @@ main {
     margin-left: auto;
 }
 
+/* BOOKLET AND GATE PASS OPTIONS */
+.product-information {
+    flex: 1;
+    min-width: 0;
+}
+
+.product-options {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 12px;
+}
+
+.product-options label {
+    color: #444;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.product-options input,
+.product-options select {
+    width: 100%;
+    max-width: 260px;
+    padding: 9px 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    background-color: white;
+    color: #333;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.product-options input:focus,
+.product-options select:focus {
+    outline: none;
+    border-color: var(--green);
+}
+
+#bookletCalculation {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
 /* SELECTION MESSAGE */
 #selection-message {
     margin-top: 15px;
@@ -136,7 +256,7 @@ main {
 /* BUY PRODUCT BUTTON */
 .buy-container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 15px auto 20px;
     padding: 0;
 
@@ -196,6 +316,31 @@ footer {
     margin-top: auto;
 }
 
+/* TABLET */
+@media screen and (max-width: 800px) {
+
+    main {
+        width: 94%;
+    }
+
+    .catalog-container {
+        gap: 12px;
+    }
+
+    .category-sidebar {
+        width: 200px;
+    }
+
+    .category-button {
+        font-size: 12px;
+    }
+
+    .product-card {
+        padding: 12px 15px;
+        gap: 12px;
+    }
+}
+
 /* SMALL SCREEN */
 @media screen and (max-width: 600px) {
 
@@ -206,6 +351,32 @@ footer {
 
     .catalog-heading h1 {
         font-size: 21px;
+    }
+
+    .catalog-container {
+        flex-direction: column;
+    }
+
+    .category-sidebar {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .category-sidebar h3 {
+        font-size: 15px;
+    }
+
+    .category-button {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .catalog-products {
+        width: 100%;
+    }
+
+    .product-list h2 {
+        font-size: 16px;
     }
 
     .product-card {
@@ -229,6 +400,11 @@ footer {
 
     .price {
         font-size: 14px;
+    }
+
+    .product-options input,
+    .product-options select {
+        max-width: 100%;
     }
 
     .buy-container {

@@ -33,109 +33,181 @@
 
         <section class="catalog-heading">
             <h1>Payment Catalog</h1>
-            <p>Select the school item you want to add to your cart.</p>
+            <p>Select a category and choose the item you want to add to your cart.</p>
         </section>
 
-        <!-- PRODUCT LIST -->
-        <section class="product-list">
+        <!-- CATALOG LAYOUT -->
+        <section class="catalog-container">
 
-            <div class="product-card">
-                <button class="add-button" onclick="selectProduct('COR', 30)">+</button>
-                <div>
-                    <h3>COR</h3>
-                    <p>Certificate of Registration</p>
-                </div>
-                <span class="price">₱30.00</span>
-            </div>
+            <!-- CATEGORY SIDEBAR -->
+            <aside class="category-sidebar">
 
-            <div class="product-card">
-                <button class="add-button" onclick="selectProduct('COG', 20)">+</button>
-                <div>
-                    <h3>COG</h3>
-                    <p>Certificate of Grades (per semester)</p>
-                </div>
-                <span class="price">₱20.00</span>
-            </div>
+                <h3>Categories</h3>
 
-            <div class="product-card">
-                <button class="add-button" onclick="selectProduct('ID', 60)">+</button>
-                <div>
-                    <h3>ID</h3>
-                    <p>ID replacement</p>
-                </div>
-                <span class="price">₱60.00</span>
-            </div>
+                <button class="category-button active" data-category="school">
+                    School Supplies & Student Requirements
+                </button>
 
-            <div class="product-card">
-                <button class="add-button" onclick="selectProduct('Student ID Lace', 80)">+</button>
-                <div>
-                    <h3>Student ID Lace</h3>
-                    <p>Official university ID lace</p>
-                </div>
-                <span class="price">₱80.00</span>
-            </div>
+                <button class="category-button" data-category="documents">
+                    Documents & Certifications
+                </button>
 
-            <div class="product-card">
-                <button class="add-button" onclick="selectProduct('ID Sling', 60)">+</button>
-                <div>
-                    <h3>ID Sling</h3>
-                    <p>Student</p>
-                </div>
-                <span class="price">₱60.00</span>
-            </div>
+                <button class="category-button" data-category="services">
+                    Rentals & Other Services
+                </button>
 
-            <div class="product-card">
-                <button class="add-button" onclick="selectProduct('Gym', 40)">+</button>
-                <div>
-                    <h3>Gym</h3>
-                    <p>For students</p>
-                </div>
-                <span class="price">₱40.00</span>
-            </div>
+            </aside>
 
-            <div class="product-card">
-                <button class="add-button" onclick="selectProduct('Gate Pass - Motorcycle', 50)">+</button>
-                <div>
-                    <h3>Gate Pass</h3>
-                    <p>Motorcycle</p>
-                </div>
-                <span class="price">₱50.00</span>
-            </div>
+            <!-- PRODUCTS -->
+            <div class="catalog-products">
 
-            <div class="product-card">
-                <button class="add-button" onclick="selectProduct('Gate Pass - Car', 75)">+</button>
-                <div>
-                    <h3>Gate Pass</h3>
-                    <p>Car</p>
-                </div>
-                <span class="price">₱75.00</span>
-            </div>
+                <!-- SCHOOL SUPPLIES -->
+                <section class="product-list active" id="school">
 
-            <div class="product-card">
-                <button class="add-button" onclick="selectProduct('School Uniform', 450)">+</button>
-                <div>
-                    <h3>School Uniform</h3>
-                    <p>Student</p>
-                </div>
-                <span class="price">₱450.00</span>
-            </div>
+                    <h2>School Supplies & Student Requirements</h2>
 
-            <div class="product-card">
-                <button class="add-button" onclick="selectProduct('Pathfit Uniform', 650)">+</button>
-                <div>
-                    <h3>Pathfit Uniform</h3>
-                    <p>Student</p>
-                </div>
-                <span class="price">₱650.00</span>
-            </div>
+                    <div class="product-card">
+                        <button class="add-button" onclick="selectProduct('ID', 60)">+</button>
+                        <div>
+                            <h3>ID</h3>
+                            <p>ID replacement</p>
+                        </div>
+                        <span class="price">₱60.00</span>
+                    </div>
 
-            <div class="product-card">
-                <button class="add-button" onclick="selectProduct('Test Booklet (Blue Book)', 4)">+</button>
-                <div>
-                    <h3>Test Booklet (Blue Book)</h3>
-                    <p>Per piece</p>
-                </div>
-                <span class="price">₱4.00</span>
+                    <div class="product-card">
+                        <button class="add-button" onclick="selectProduct('Student ID Lace', 80)">+</button>
+                        <div>
+                            <h3>Student ID Lace</h3>
+                            <p>Official university ID lace</p>
+                        </div>
+                        <span class="price">₱80.00</span>
+                    </div>
+
+                    <div class="product-card">
+                        <button class="add-button" onclick="selectProduct('ID Sling', 60)">+</button>
+                        <div>
+                            <h3>ID Sling</h3>
+                            <p>Student</p>
+                        </div>
+                        <span class="price">₱60.00</span>
+                    </div>
+
+                    <div class="product-card">
+                        <button class="add-button" onclick="selectProduct('School Uniform', 450)">+</button>
+                        <div>
+                            <h3>School Uniform</h3>
+                            <p>Student</p>
+                        </div>
+                        <span class="price">₱450.00</span>
+                    </div>
+
+                    <div class="product-card">
+                        <button class="add-button" onclick="selectProduct('Pathfit Uniform', 650)">+</button>
+                        <div>
+                            <h3>Pathfit Uniform</h3>
+                            <p>Student</p>
+                        </div>
+                        <span class="price">₱650.00</span>
+                    </div>
+
+                    <!-- BOOKLET -->
+                    <div class="product-card booklet-card">
+
+                        <div class="product-information">
+                            <h3>Test Booklet (Blue Book)</h3>
+                            <p>₱4.00 per booklet | 2 terms per semester</p>
+
+                            <div class="product-options">
+                                <label for="bookletSubjects">Number of Subjects:</label>
+
+                                <input
+                                    type="number"
+                                    id="bookletSubjects"
+                                    min="1"
+                                    step="1"
+                                    placeholder="Enter subjects"
+                                >
+
+                                <p id="bookletCalculation">
+                                    Enter your number of subjects to calculate the total.
+                                </p>
+                            </div>
+                        </div>
+
+                        <button class="add-button" onclick="addBooklet()">+</button>
+
+                    </div>
+
+                </section>
+
+                <!-- DOCUMENTS AND CERTIFICATIONS -->
+                <section class="product-list" id="documents">
+
+                    <h2>Documents & Certifications</h2>
+
+                    <div class="product-card">
+                        <button class="add-button" onclick="selectProduct('COR', 30)">+</button>
+                        <div>
+                            <h3>COR</h3>
+                            <p>Certificate of Registration</p>
+                        </div>
+                        <span class="price">₱30.00</span>
+                    </div>
+
+                    <div class="product-card">
+                        <button class="add-button" onclick="selectProduct('COG', 20)">+</button>
+                        <div>
+                            <h3>COG</h3>
+                            <p>Certificate of Grades (per semester)</p>
+                        </div>
+                        <span class="price">₱20.00</span>
+                    </div>
+
+                </section>
+
+                <!-- RENTALS AND OTHER SERVICES -->
+                <section class="product-list" id="services">
+
+                    <h2>Rentals & Other Services</h2>
+
+                    <div class="product-card">
+                        <button class="add-button" onclick="selectProduct('Gym', 40)">+</button>
+                        <div>
+                            <h3>Gym</h3>
+                            <p>For students</p>
+                        </div>
+                        <span class="price">₱40.00</span>
+                    </div>
+
+                    <!-- GATE PASS -->
+                    <div class="product-card gatepass-card">
+
+                        <div class="product-information">
+                            <h3>Gate Pass</h3>
+                            <p>Select your vehicle type.</p>
+
+                            <div class="product-options">
+                                <label for="gatePassType">Vehicle Type:</label>
+
+                                <select id="gatePassType">
+                                    <option value="motorcycle-gate-pass">
+                                        Motorcycle - ₱50.00
+                                    </option>
+
+                                    <option value="car-gate-pass">
+                                        Car - ₱75.00
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="add-button" onclick="addGatePass()">+</button>
+
+                    </div>
+
+                </section>
+
             </div>
 
         </section>

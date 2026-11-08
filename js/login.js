@@ -25,6 +25,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         }
 
+        // STAFF LOGIN
+        else if (username === "staff") {
+
+            sessionStorage.setItem("staffUsername", username);
+            window.location.href = "staff-dashboard.html";
+
+        }
+
         // INVALID USERNAME
         else {
 

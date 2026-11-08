@@ -30,6 +30,7 @@ body {
     padding: 8px 3%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: white;
     border-bottom: 1px solid #ddd;
     flex-shrink: 0;
@@ -52,7 +53,6 @@ body {
     font-size: 28px;
 }
 
-/* HOME NAVIGATION */
 .navbar nav {
     display: flex;
     align-items: center;
@@ -69,6 +69,61 @@ body {
 
 .navbar nav a.active {
     border-bottom: 3px solid var(--gold);
+}
+
+/* HEADER ACTIONS */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* NOTIFICATION BELL */
+.notification-button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--navy);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.notification-button:hover {
+    background-color: #F1F4F8;
+    border-color: var(--green);
+}
+
+.bell-icon {
+    width: 21px;
+    height: 21px;
+}
+
+/* Hide notification number badges */
+.notification-badge,
+.sidebar-badge {
+    display: none !important;
+}
+
+/* LOG OUT BUTTON */
+.logout-button {
+    padding: 9px 17px;
+    background-color: var(--navy);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.logout-button:hover {
+    background-color: var(--green);
 }
 
 /* MAIN CONTAINER */
@@ -105,6 +160,9 @@ body {
     width: 100%;
     padding: 11px 10px;
     margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     text-align: left;
     background-color: transparent;
     border: none;
@@ -219,9 +277,11 @@ body {
     font-size: 11px;
 }
 
-/* TRANSACTION AND RECEIPT SECTIONS */
+/* RECORD AND NOTIFICATION SECTIONS */
 #transactions.content-section.active,
-#receipts.content-section.active {
+#cashAdvanceReturn.content-section.active,
+#budgetRequests.content-section.active,
+#notifications.content-section.active {
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -283,7 +343,8 @@ thead {
     z-index: 1;
 }
 
-th, td {
+th,
+td {
     padding: 10px 8px;
     border-bottom: 1px solid #ddd;
     vertical-align: middle;
@@ -302,24 +363,7 @@ tbody tr:hover {
     background-color: #F8F9FB;
 }
 
-/* CLICKABLE STUDENT NAME */
-.student-name {
-    background: none;
-    border: none;
-    color: var(--navy);
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: left;
-}
-
-.student-name:hover {
-    color: var(--green);
-    text-decoration: underline;
-}
-
-/* CLAIMING STATUS */
+/* STATUS */
 .status {
     display: inline-block;
     padding: 4px 7px;
@@ -329,7 +373,8 @@ tbody tr:hover {
     white-space: nowrap;
 }
 
-.status.claimed {
+.status.claimed,
+.status.verified {
     background-color: #E5F4E9;
     color: var(--green);
 }
@@ -339,7 +384,12 @@ tbody tr:hover {
     color: #B7791F;
 }
 
-/* RECEIPT LINK */
+.status.discrepancy {
+    background-color: #FCE8E6;
+    color: #C5221F;
+}
+
+/* TABLE LINKS */
 td a {
     color: var(--navy);
     text-decoration: none;
@@ -352,7 +402,7 @@ td a:hover {
     text-decoration: underline;
 }
 
-/* NO TRANSACTIONS */
+/* NO RECORDS MESSAGE */
 .no-transactions {
     padding: 20px;
     text-align: center;
@@ -360,122 +410,153 @@ td a:hover {
     font-size: 12px;
 }
 
-/* EMPTY SECTIONS */
-.empty-section {
-    padding: 20px;
-    color: #777;
-    font-size: 12px;
-    text-align: center;
-}
-
-/* MODAL BACKGROUND */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1000;
-}
-
-.modal-overlay.show {
+/* NOTIFICATION CENTER */
+.notification-title {
     display: flex;
-}
-
-/* MODAL BOX */
-.claim-modal {
-    width: 100%;
-    max-width: 400px;
-    background-color: white;
-    border-radius: 7px;
-    padding: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* MODAL HEADER */
-.modal-header {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 15px;
+    align-items: center;
+    gap: 10px;
 }
 
-.modal-header h2 {
-    color: var(--navy);
-    font-size: 17px;
-}
-
-.close-modal {
-    border: none;
-    background: none;
-    font-size: 25px;
-    color: #777;
-    cursor: pointer;
-}
-
-/* MODAL DETAILS */
-.modal-body {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.modal-detail label {
-    display: block;
-    color: #777;
-    font-size: 11px;
-    margin-bottom: 4px;
-}
-
-.modal-detail p {
-    color: #333;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.modal-detail select {
-    width: 100%;
-    padding: 9px;
+.mark-read-button {
+    padding: 8px 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    outline: none;
-    font-size: 12px;
     background-color: white;
-}
-
-/* MODAL BUTTONS */
-.modal-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    margin-top: 20px;
-}
-
-.modal-actions button {
-    padding: 9px 15px;
-    border: none;
-    border-radius: 4px;
-    font-size: 11px;
+    color: var(--navy);
+    font-size: 10px;
     font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.mark-read-button:hover {
+    background-color: #F1F4F8;
+    border-color: var(--green);
+    color: var(--green);
+}
+
+/* NOTIFICATION FILTERS */
+.notification-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+.notification-filter {
+    padding: 7px 16px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background-color: white;
+    color: #555;
+    font-size: 11px;
     cursor: pointer;
 }
 
-.cancel-button {
-    background-color: #eee;
-    color: #555;
-}
-
-.save-button {
+.notification-filter:hover,
+.notification-filter.active {
     background-color: var(--navy);
+    border-color: var(--navy);
     color: white;
 }
 
-.save-button:hover {
-    background-color: var(--green);
+/* NOTIFICATION LIST */
+.notification-page-list {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    border-top: 1px solid #eee;
+}
+
+.notification-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 16px 12px;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: white;
+    text-align: left;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.2s;
+}
+
+.notification-card:hover {
+    background-color: #F8F9FB;
+}
+
+.notification-card.unread {
+    background-color: #F5F8FC;
+}
+
+.notification-card.unread:hover {
+    background-color: #EDF3F9;
+}
+
+/* NOTIFICATION SYMBOL */
+.notification-symbol {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #F1F4F8;
+    color: var(--navy);
+}
+
+.notification-symbol svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* NOTIFICATION DETAILS */
+.notification-details {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.notification-heading {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.new-label {
+    padding: 3px 7px;
+    border-radius: 10px;
+    background-color: #E5F4E9;
+    color: var(--green);
+    font-size: 9px;
+}
+
+.notification-message {
+    color: #555;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.notification-time {
+    color: #888;
+    font-size: 10px;
+}
+
+.notification-arrow {
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
 /* FOOTER */
@@ -500,7 +581,6 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 800px) {
-
     .admin-container {
         width: 95%;
         gap: 10px;
@@ -530,7 +610,6 @@ footer {
 
 /* MOBILE */
 @media (max-width: 600px) {
-
     .navbar {
         height: 60px;
         padding: 6px 4%;
@@ -555,6 +634,25 @@ footer {
 
     .navbar nav a {
         font-size: 12px;
+    }
+
+    .header-actions {
+        gap: 8px;
+    }
+
+    .notification-button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .bell-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .logout-button {
+        padding: 8px 10px;
+        font-size: 10px;
     }
 
     .admin-container {
@@ -624,12 +722,44 @@ footer {
         font-size: 11px;
     }
 
-    .claim-modal {
-        padding: 15px;
+    .notification-title {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
-    .modal-header h2 {
-        font-size: 15px;
+    .mark-read-button {
+        align-self: flex-start;
+    }
+
+    .notification-card {
+        gap: 8px;
+        padding: 12px 7px;
+    }
+
+    .notification-symbol {
+        width: 32px;
+        height: 32px;
+    }
+
+    .notification-symbol svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .notification-heading {
+        font-size: 10px;
+    }
+
+    .notification-message {
+        font-size: 9px;
+    }
+
+    .notification-time {
+        font-size: 9px;
+    }
+
+    .notification-arrow {
+        font-size: 9px;
     }
 
     footer {

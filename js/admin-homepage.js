@@ -1,154 +1,253 @@
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-    // SIDEBAR CONTENT SWITCHING
+    // GET ELEMENTS
     const sidebarLinks = document.querySelectorAll(".sidebar-link");
     const contentSections = document.querySelectorAll(".content-section");
+    const notificationButton = document.getElementById("notificationButton");
 
-    sidebarLinks.forEach(function(link) {
+    // SHOW SELECTED SECTION
+    function showSection(sectionId) {
 
-        link.addEventListener("click", function() {
-
-            const sectionId = link.dataset.section;
-
-            sidebarLinks.forEach(function(item) {
-                item.classList.remove("active");
-            });
-
-            contentSections.forEach(function(section) {
-                section.classList.remove("active");
-            });
-
-            link.classList.add("active");
-
-            const selectedSection = document.getElementById(sectionId);
-
-            if (selectedSection) {
-                selectedSection.classList.add("active");
-            }
-
+        contentSections.forEach(section => {
+            section.classList.remove("active");
         });
 
-    });
-
-    // TRANSACTION SEARCH AND FILTER
-    const searchInput = document.getElementById("transactionSearch");
-    const statusFilter = document.getElementById("statusFilter");
-    const transactionRows = document.querySelectorAll("#transactionTableBody tr");
-    const noTransactions = document.getElementById("noTransactions");
-
-    function filterTransactions() {
-
-        const searchValue = searchInput.value.toLowerCase().trim();
-        const selectedStatus = statusFilter.value;
-
-        let visibleCount = 0;
-
-        transactionRows.forEach(function(row) {
-
-            const rowText = row.textContent.toLowerCase();
-            const status = row.dataset.status;
-
-            const matchesSearch = rowText.includes(searchValue);
-
-            const matchesStatus =
-                selectedStatus === "all" || status === selectedStatus;
-
-            if (matchesSearch && matchesStatus) {
-                row.style.display = "";
-                visibleCount++;
-            } else {
-                row.style.display = "none";
-            }
-
+        sidebarLinks.forEach(link => {
+            link.classList.remove("active");
         });
 
-        noTransactions.hidden = visibleCount !== 0;
+        const selectedSection = document.getElementById(sectionId);
 
-    }
-
-    if (searchInput && statusFilter) {
-        searchInput.addEventListener("input", filterTransactions);
-        statusFilter.addEventListener("change", filterTransactions);
-    }
-
-    // CLAIMING STATUS MODAL
-    const claimModal = document.getElementById("claimModal");
-    const closeModal = document.getElementById("closeModal");
-    const cancelModal = document.getElementById("cancelModal");
-    const saveStatus = document.getElementById("saveStatus");
-
-    const modalStudentName = document.getElementById("modalStudentName");
-    const modalTransactionId = document.getElementById("modalTransactionId");
-    const modalStudentNumber = document.getElementById("modalStudentNumber");
-    const modalPurchasedItems = document.getElementById("modalPurchasedItems");
-    const modalTotalAmount = document.getElementById("modalTotalAmount");
-    const claimingStatus = document.getElementById("claimingStatus");
-
-    let selectedRow = null;
-
-    // OPEN MODAL WHEN STUDENT NAME IS CLICKED
-    document.querySelectorAll(".student-name").forEach(function(button) {
-
-        button.addEventListener("click", function() {
-
-            selectedRow = button.closest("tr");
-
-            modalStudentName.textContent = button.textContent.trim();
-            modalTransactionId.textContent = selectedRow.cells[1].textContent;
-            modalStudentNumber.textContent = selectedRow.cells[3].textContent;
-            modalPurchasedItems.textContent = selectedRow.cells[4].textContent;
-            modalTotalAmount.textContent = selectedRow.cells[5].textContent;
-
-            claimingStatus.value = selectedRow.dataset.status;
-
-            claimModal.classList.add("show");
-
-        });
-
-    });
-
-    // CLOSE MODAL
-    function hideModal() {
-        claimModal.classList.remove("show");
-        selectedRow = null;
-    }
-
-    closeModal.addEventListener("click", hideModal);
-    cancelModal.addEventListener("click", hideModal);
-
-    claimModal.addEventListener("click", function(event) {
-        if (event.target === claimModal) {
-            hideModal();
+        if (selectedSection) {
+            selectedSection.classList.add("active");
         }
+
+        const selectedLink = document.querySelector(
+            `.sidebar-link[data-section="${sectionId}"]`
+        );
+
+        if (selectedLink) {
+            selectedLink.classList.add("active");
+        }
+    }
+
+    // SIDEBAR NAVIGATION
+    sidebarLinks.forEach(link => {
+
+        link.addEventListener("click", function () {
+
+            const sectionId = this.dataset.section;
+
+            showSection(sectionId);
+
+        });
+
     });
 
-    // SAVE UPDATED CLAIMING STATUS
-    saveStatus.addEventListener("click", function() {
+    // NOTIFICATION BELL NAVIGATION
+    if (notificationButton) {
 
-        if (!selectedRow) {
+        notificationButton.addEventListener("click", function () {
+
+            showSection("notifications");
+
+        });
+
+    }
+
+    // TABLE SEARCH AND FILTER
+    function setupTableFilter(searchId, filterId, tableId, messageId) {
+
+        const searchInput = document.getElementById(searchId);
+        const filterSelect = document.getElementById(filterId);
+        const table = document.getElementById(tableId);
+        const noResults = document.getElementById(messageId);
+
+        if (!searchInput || !filterSelect || !table) {
             return;
         }
 
-        const newStatus = claimingStatus.value;
+        const rows = table.querySelectorAll("tbody tr");
 
-        selectedRow.dataset.status = newStatus;
+        function filterRows() {
 
-        const statusCell = selectedRow.cells[6];
-        const statusLabel = statusCell.querySelector(".status");
+            const searchValue = searchInput.value.toLowerCase().trim();
+            const selectedStatus = filterSelect.value;
 
-        statusLabel.textContent =
-            newStatus.charAt(0).toUpperCase() + newStatus.slice(1);
+            let visibleCount = 0;
 
-        statusLabel.className = "status " + newStatus;
+            rows.forEach(row => {
 
-        // Refresh the transaction filter
-        filterTransactions();
+                const rowText = row.textContent.toLowerCase();
+                const rowStatus = row.dataset.status;
 
-        hideModal();
+                const matchesSearch = rowText.includes(searchValue);
 
-        alert("Claiming status updated successfully!");
+                const matchesStatus =
+                    selectedStatus === "all" ||
+                    rowStatus === selectedStatus;
+
+                if (matchesSearch && matchesStatus) {
+
+                    row.style.display = "";
+                    visibleCount++;
+
+                } else {
+
+                    row.style.display = "none";
+
+                }
+
+            });
+
+            if (noResults) {
+                noResults.hidden = visibleCount !== 0;
+            }
+
+        }
+
+        searchInput.addEventListener("input", filterRows);
+        filterSelect.addEventListener("change", filterRows);
+
+    }
+
+    // STUDENT TRANSACTION FILTER
+    setupTableFilter(
+        "transactionSearch",
+        "statusFilter",
+        "transactionTable",
+        "noTransactions"
+    );
+
+    // CASH ADVANCE RETURN FILTER
+    setupTableFilter(
+        "cashAdvanceSearch",
+        "cashAdvanceFilter",
+        "cashAdvanceTable",
+        "noCashAdvance"
+    );
+
+    // BUDGET REQUEST FILTER
+    setupTableFilter(
+        "budgetSearch",
+        "budgetFilter",
+        "budgetTable",
+        "noBudgetRequests"
+    );
+
+    // NOTIFICATION ELEMENTS
+    const notificationCards = document.querySelectorAll(".notification-card");
+    const notificationFilters = document.querySelectorAll(".notification-filter");
+    const markAllReadButton = document.getElementById("markAllReadButton");
+    const noNotifications = document.getElementById("noNotifications");
+
+    let currentNotificationFilter = "all";
+
+    // UPDATE NOTIFICATION DISPLAY
+    function updateNotifications() {
+
+        let visibleCount = 0;
+
+        notificationCards.forEach(card => {
+
+            const isUnread = card.classList.contains("unread");
+
+            const shouldShow =
+                currentNotificationFilter === "all" ||
+                (currentNotificationFilter === "unread" && isUnread);
+
+            card.style.display = shouldShow ? "flex" : "none";
+
+            if (shouldShow) {
+                visibleCount++;
+            }
+
+        });
+
+        if (noNotifications) {
+            noNotifications.hidden = visibleCount !== 0;
+        }
+
+    }
+
+    // NOTIFICATION FILTER BUTTONS
+    notificationFilters.forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            currentNotificationFilter = this.dataset.filter;
+
+            notificationFilters.forEach(filter => {
+                filter.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+            updateNotifications();
+
+        });
 
     });
+
+    // MARK ONE NOTIFICATION AS READ
+    notificationCards.forEach(card => {
+
+        card.addEventListener("click", function () {
+
+            const notificationType = this.dataset.notification;
+
+            // Remove unread status
+            this.classList.remove("unread");
+
+            // Remove NEW label
+            const newLabel = this.querySelector(".new-label");
+
+            if (newLabel) {
+                newLabel.remove();
+            }
+
+            // Open related record section
+            if (notificationType === "cashAdvance") {
+
+                showSection("cashAdvanceReturn");
+
+            } else if (notificationType === "budgetRequests") {
+
+                showSection("budgetRequests");
+
+            }
+
+            updateNotifications();
+
+        });
+
+    });
+
+    // MARK ALL NOTIFICATIONS AS READ
+    if (markAllReadButton) {
+
+        markAllReadButton.addEventListener("click", function () {
+
+            notificationCards.forEach(card => {
+
+                card.classList.remove("unread");
+
+                const newLabel = card.querySelector(".new-label");
+
+                if (newLabel) {
+                    newLabel.remove();
+                }
+
+            });
+
+            updateNotifications();
+
+        });
+
+    }
+
+    // INITIAL NOTIFICATION DISPLAY
+    updateNotifications();
 
 });
