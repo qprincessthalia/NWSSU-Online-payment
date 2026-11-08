@@ -3,44 +3,47 @@ document.addEventListener("DOMContentLoaded", function() {
     const loginForm = document.getElementById("loginForm");
     const message = document.getElementById("loginMessage");
 
-    loginForm.addEventListener("submit", function(event) {
+    if (loginForm) {
+        loginForm.addEventListener("submit", function(event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        let username = document.getElementById("username").value.trim().toLowerCase();
+            let username = document.getElementById("username").value.trim().toLowerCase();
+            let password = document.getElementById("password").value;
 
-        // STUDENT LOGIN
-        if (username === "student") {
+            // STUDENT LOGIN
+            if (username === "student") {
 
-            sessionStorage.setItem("studentUsername", username);
-            window.location.href = "student-homepage.html";
+                sessionStorage.setItem("studentUsername", username);
+                window.location.href = "student-homepage.html";
 
-        }
+            }
 
-        // ADMIN LOGIN
-        else if (username === "admin") {
+            // STAFF LOGIN
+            else if (username === "staff") {
 
-            sessionStorage.setItem("adminUsername", username);
-            window.location.href = "admin-homepage.html";
+                sessionStorage.setItem("staffUsername", username);
+                window.location.href = "staff-homepage.html";
 
-        }
+            }
 
-        // STAFF LOGIN
-        else if (username === "staff") {
+            // ADMIN LOGIN
+            else if (username === "admin") {
 
-            sessionStorage.setItem("staffUsername", username);
-            window.location.href = "staff-dashboard.html";
+                sessionStorage.setItem("adminUsername", username);
+                window.location.href = "admin-homepage.html"; // Updated: removed "pages/" if it's in the root folder
 
-        }
+            }
 
-        // INVALID USERNAME
-        else {
+            // INVALID USERNAME
+            else {
 
-            message.style.color = "red";
-            message.textContent = "Invalid username. Please try again.";
+                message.style.color = "red";
+                message.textContent = "Invalid username. Please try again.";
 
-        }
+            }
 
-    });
+        });
+    }
 
 });

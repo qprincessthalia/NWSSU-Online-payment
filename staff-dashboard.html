@@ -50,6 +50,10 @@
                 All Transactions
             </button>
 
+            <button class="sidebar-link" data-section="request">
+                Request
+            </button>
+
         </aside>
 
         <!-- LARGE CONTENT BOX -->
@@ -61,7 +65,7 @@
                 <div class="welcome-section">
                     <h2>Welcome, Maria Santos!</h2>
                     <p>
-                        Manage student payment records, track transaction histories, 
+                        Manage your payment records, track transaction histories, 
                         and process item collection statuses efficiently.
                     </p>
                 </div>
@@ -79,6 +83,7 @@
                         <p>Monitor student payment records, receipts, and claim updates.</p>
                         <button class="view-button" data-section="transactions">View Transactions</button>
                     </div>
+
 
                 </div>
 
@@ -140,7 +145,7 @@
 
                     <div class="total-transactions">
                         <label>Total Transactions</label>
-                        <p>4</p>
+                        <p>3</p>
                     </div>
 
                 </div>
@@ -153,7 +158,6 @@
                             <tr>
                                 <th>Date</th>
                                 <th>Transaction ID</th>
-                                <th>Student Name</th>
                                 <th>Purchased Items</th>
                                 <th>Total Amount</th>
                                 <th>Status</th>
@@ -166,31 +170,26 @@
                             <tr>
                                 <td>September 29, 2026</td>
                                 <td>2775280</td>
-                                <td>Jeolee Ong</td>
                                 <td>
                                     <div class="item-list">
-                                        <span>COR</span>
-                                        <span>Student ID Lace</span>
-                                        <span>School Uniform</span>
-                                        <small>3 Items</small>
+                                        <span>Gym</span>
                                     </div>
                                 </td>
-                                <td class="amount">₱540.00</td>
-                                <td><span class="status unclaimed">Unclaimed</span></td>
-                                <td><a href="#">Mark Claimed</a></td>
+                                <td class="amount">₱40.00</td>
+                                <td><span class="status unclaimed">claimed</span></td>
+                                <td><a href="#">view receipt</a></td>
                             </tr>
 
                             <tr>
                                 <td>September 22, 2026</td>
                                 <td>2775275</td>
-                                <td>Jeolee Ong</td>
                                 <td>
                                     <div class="item-list">
-                                        <span>School Uniform</span>
+                                        <span>Gate Pass</span>
                                         <small>1 Item</small>
                                     </div>
                                 </td>
-                                <td class="amount">₱650.00</td>
+                                <td class="amount">₱75.00</td>
                                 <td><span class="status claimed">Claimed</span></td>
                                 <td><a href="#">View Receipt</a></td>
                             </tr>
@@ -198,38 +197,92 @@
                             <tr>
                                 <td>September 21, 2026</td>
                                 <td>2775270</td>
-                                <td>Alex Rodriguez</td>
                                 <td>
                                     <div class="item-list">
-                                        <span>Test Booklet</span>
+                                        <span>Turn it in</span>
                                         <small>1 Item</small>
                                     </div>
                                 </td>
-                                <td class="amount">₱40.00</td>
+                                <td class="amount">₱1000.00</td>
                                 <td><span class="status claimed">Claimed</span></td>
                                 <td><a href="#">View Receipt</a></td>
                             </tr>
 
-                            <tr>
-                                <td>October 28, 2026</td>
-                                <td>2775267</td>
-                                <td>Jeolee Ong</td>
-                                <td>
-                                    <div class="item-list">
-                                        <span>Student ID Lace</span>
-                                        <span>School Uniform</span>
-                                        <span>Student Handbook</span>
-                                        <small>3 Items</small>
-                                    </div>
-                                </td>
-                                <td class="amount">₱880.00</td>
-                                <td><span class="status claimed">Claimed</span></td>
-                                <td><a href="#">View Receipt</a></td>
-                            </tr>
 
                         </tbody>
 
                     </table>
+
+                </div>
+
+            </div>
+
+            <!-- BUDGET REQUEST -->
+            <div class="content-section" id="request">
+
+                <div class="content-title">
+                    <h2>Budget Request</h2>
+                    <p>Fill out the details below to request a budget from the administrator.</p>
+                </div>
+
+                <div class="demo-note">
+                    <strong>DEMO:</strong> This form is not yet connected to the admin side.
+                    Submitting it will not send the request anywhere.
+                </div>
+
+                <p class="request-message success" id="requestSuccess" role="status" hidden></p>
+
+                <div class="request-scroll">
+
+                    <form class="request-form" id="budgetForm" novalidate>
+
+                        <div class="request-grid">
+
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <input type="text" id="department" value="Student Affairs" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="purpose">Purpose</label>
+                                <input type="text" id="purpose" value="Student Organization Activity" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="amount">Requested Amount (₱)</label>
+                                <input type="number" id="amount" value="25000.00"
+                                       min="1" step="0.01" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dateNeeded">Needed Date</label>
+                                <input type="text" id="dateNeeded" value="November 20, 2026"
+                                       placeholder="e.g. November 20, 2026" autocomplete="off" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Status</label>
+                                <div class="status-field">
+                                    <span class="status pending">Pending Review</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="documents">Supporting Documents</label>
+                                <input type="file" id="documents" multiple
+                                       accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+
+                        </div>
+
+                        <p class="request-message error" id="requestError" role="alert" hidden></p>
+
+                        <div class="request-actions">
+                            <button type="reset" class="clear-button">Clear Form</button>
+                            <button type="submit" class="view-button">Submit Request</button>
+                        </div>
+
+                    </form>
 
                 </div>
 

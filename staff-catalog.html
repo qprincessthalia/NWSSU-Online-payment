@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Catalog - NWSSU</title>
+
+    <link rel="stylesheet" href="css/staff-catalog.css">
+    <link rel="stylesheet" href="css/staff-header.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="navbar">
+
+        <div class="brand">
+            <img src="photos/nwssu-logo.png" alt="NWSSU Logo">
+            <span>NWSSU</span>
+        </div>
+
+        <nav>
+            <a href="staff-homepage.html">Home</a>
+            <a href="staff-dashboard.html">Dashboard</a>
+            <a href="staff-catalog.html" class="active">Catalog</a>
+            <a href="staff-cart.html">Cart</a>
+        </nav>
+
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <section class="catalog-heading">
+            <h1>Staff Payment Catalog & Verification</h1>
+            <p>Select a category and choose the items you want to pay for.</p>
+        </section>
+
+        <section class="catalog-container">
+
+            <!-- CATEGORY SIDEBAR -->
+            <aside class="category-sidebar">
+
+                <h3>Categories</h3>
+
+                <button class="category-button active" data-category="school">
+                    School Supplies & Student Requirements
+                </button>
+
+                <button class="category-button" data-category="documents">
+                    Documents & Certifications
+                </button>
+
+                <button class="category-button" data-category="services">
+                    Rentals & Other Services
+                </button>
+
+            </aside>
+
+            <!-- PRODUCTS -->
+            <div class="catalog-products">
+
+                <!-- SCHOOL SUPPLIES -->
+                <section class="product-list active" id="school">
+
+                    <h2>School Supplies & Student Requirements</h2>
+
+                    <div class="product-card">
+                        <button class="add-button" data-product-id="id-replacement">+</button>
+                        <div>
+                            <h3>ID</h3>
+                            <p>ID replacement</p>
+                        </div>
+                        <span class="price">₱60.00</span>
+                    </div>
+
+                    <div class="product-card">
+                        <button class="add-button" data-product-id="id-lace">+</button>
+                        <div>
+                            <h3>Student ID Lace</h3>
+                            <p>Official university ID lace</p>
+                        </div>
+                        <span class="price">₱80.00</span>
+                    </div>
+
+                </section>
+
+                <!-- DOCUMENTS AND CERTIFICATIONS -->
+                <section class="product-list" id="documents">
+
+                    <h2>Documents & Certifications</h2>
+
+                    <div class="product-card">
+                        <button class="add-button" data-product-id="medical-certificate">+</button>
+                        <div>
+                            <h3>Medical Certificate</h3>
+                        </div>
+                        <span class="price">₱20.00</span>
+                    </div>
+
+                </section>
+
+                <!-- RENTALS AND OTHER SERVICES -->
+                <section class="product-list" id="services">
+
+                    <h2>Rentals & Other Services</h2>
+
+                    <div class="product-card">
+                        <button class="add-button" data-product-id="turn-it-in">+</button>
+                        <div>
+                            <h3>Turn it in</h3>
+                        </div>
+                        <span class="price">₱1000.00</span>
+                    </div>
+
+                    <div class="product-card">
+                        <button class="add-button" data-product-id="university-oval">+</button>
+                        <div>
+                            <h3>University Oval</h3>
+                            <p>per day</p>
+                        </div>
+                        <span class="price">₱3000.00</span>
+                    </div>
+
+                    <div class="product-card">
+                        <button class="add-button" data-product-id="bdc">+</button>
+                        <div>
+                            <h3>BDC</h3>
+                            <p>per day</p>
+                        </div>
+                        <span class="price">₱1500.00</span>
+                    </div>
+
+                    <div class="product-card">
+                        <button class="add-button" data-product-id="socio">+</button>
+                        <div>
+                            <h3>Socio</h3>
+                            <p>per day</p>
+                        </div>
+                        <span class="price">₱2000.00</span>
+                    </div>
+
+                    <div class="product-card">
+                        <button class="add-button" data-product-id="tables">+</button>
+                        <div>
+                            <h3>Tables</h3>
+                            <p>per day</p>
+                        </div>
+                        <span class="price">₱10.00</span>
+                    </div>
+
+                    <div class="product-card">
+                        <button class="add-button" data-product-id="chairs">+</button>
+                        <div>
+                            <h3>Chairs</h3>
+                            <p>per day</p>
+                        </div>
+                        <span class="price">₱5.00</span>
+                    </div>
+
+                    <div class="product-card">
+                        <button class="add-button" data-product-id="gym">+</button>
+                        <div>
+                            <h3>Gym</h3>
+                            <p>For student and staff</p>
+                        </div>
+                        <span class="price">₱40.00</span>
+                    </div>
+
+                    <!-- GATE PASS -->
+                    <div class="product-card gatepass-card">
+
+                        <div class="product-information">
+                            <h3>Gate Pass</h3>
+                            <p>Select your vehicle type.</p>
+
+                            <div class="product-options">
+                                <label for="gatePassType">Vehicle Type:</label>
+
+                                <select id="gatePassType">
+                                    <option value="motorcycle-gate-pass">Motorcycle - ₱50.00</option>
+                                    <option value="car-gate-pass">Car - ₱75.00</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="add-button" data-source="gatePassType">+</button>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+        <p id="selection-message"></p>
+
+    </main>
+
+    <!-- GO TO CART BUTTON -->
+    <div class="buy-container">
+        <button type="button" class="buy-button" id="buyButton" disabled>
+            Go to Cart
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Northwest Samar State University | Online Payment System</p>
+    </footer>
+
+    <script src="js/staff-payment-store.js"></script>
+    <script src="js/staff-catalog.js"></script>
+    <script src="js/staff-session.js"></script>
+</body>
+</html>

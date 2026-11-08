@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Homepage - NWSSU Online Payment System</title>
+
+    <link rel="stylesheet" href="css/staff-homepage.css">
+    <link rel="stylesheet" href="css/student-header.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 30px; background-color: #ffffff; border-bottom: 1px solid #ddd;">
+
+        <div class="brand" style="display: flex; align-items: center; gap: 10px;">
+            <img src="photos/nwssu-logo.png" alt="NWSSU Logo" style="height: 35px;">
+            <span style="font-weight: bold; font-size: 18px; color: #168044;">NWSSU</span>
+        </div>
+
+        <nav style="display: flex; align-items: center; width: 100%; justify-content: space-between; margin-left: 30px;">
+            <div style="display: flex; gap: 25px; align-items: center;">
+                <a href="staff-homepage.html" class="active" style="text-decoration: none; color: #168044; font-weight: bold; border-bottom: 2px solid #163D70; padding-bottom: 3px;">Home</a>
+                <a href="staff-dashboard.html" style="text-decoration: none; color: #168044; font-weight: bold;">Dashboard</a>
+            </div>
+
+            <div>
+                <a href="#" id="logoutBtn" style="border: 1px solid #168044; color: #168044; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-size: 13px; font-weight: bold; transition: 0.2s;">Log out</a>
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+
+            <h1>Staff Portal - NWSSU</h1>
+
+            <p>
+                Manage your payment records, verify transaction receipts, 
+                and process item collection statuses efficiently.
+            </p>
+
+        </section>
+
+        <!-- Choice Section -->
+        <section class="choice-section">
+
+            <h2>What would you like to do?</h2>
+
+            <p>Select an option below to get started.</p>
+
+            <div class="choice-container">
+
+                <!-- Dashboard Card -->
+                <div class="choice-card">
+
+                    <h3>Staff Dashboard</h3>
+
+                    <p>
+                        View your employee profile, monitor overall student transactions, 
+                        and update item claim records.
+                    </p>
+
+                    <a href="staff-dashboard.html" class="choice-button dashboard-button">
+                        Go to Dashboard
+                    </a>
+
+                </div>
+
+                <!-- Auxiliary Services Card -->
+                <div class="choice-card">
+
+                    <h3>Auxiliary Services</h3>
+
+                    <p>Non-academic operational services and goods a university provides.</p>
+
+                    <a href="staff-catalog.html" class="choice-button catalog-button">
+                        View Catalog
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Northwest Samar State University | Online Payment System</p>
+    </footer>
+
+    <!-- Session Security & Logout Script -->
+    <script src="js/staff-session.js"></script>
+</body>
+</html>

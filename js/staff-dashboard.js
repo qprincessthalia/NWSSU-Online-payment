@@ -42,7 +42,7 @@ sidebarLinks.forEach(link => {
 });
 
 // VIEW BUTTON EVENTS (FOR DASHBOARD SUMMARY CARDS)
-const viewButtons = document.querySelectorAll(".view-button");
+const viewButtons = document.querySelectorAll(".view-button[data-section]");
 
 viewButtons.forEach(button => {
     button.addEventListener("click", () => {
@@ -50,3 +50,53 @@ viewButtons.forEach(button => {
         showSection(sectionId);
     });
 });
+
+
+// BUDGET REQUEST FORM (static demo: nothing is sent or saved)
+const budgetForm = document.getElementById("budgetForm");
+
+if (budgetForm) {
+
+    const requestSuccess = document.getElementById("requestSuccess");
+    const requestError = document.getElementById("requestError");
+    // CLEAR FORM: empty every field and hide the messages
+    budgetForm.addEventListener("reset", () => {
+
+        setTimeout(() => {
+            budgetForm
+                .querySelectorAll('input[type="text"], input[type="number"]')
+                .forEach(input => {
+                    input.value = "";
+                });
+        }, 0);
+
+        requestSuccess.hidden = true;
+        requestError.hidden = true;
+    });
+
+    budgetForm.addEventListener("submit", event => {
+
+        event.preventDefault();
+
+        requestSuccess.hidden = true;
+
+        if (!budgetForm.checkValidity()) {
+            requestError.textContent = "Please fill out all required fields correctly.";
+            requestError.hidden = false;
+            budgetForm.reportValidity();
+            return;
+        }
+
+        requestError.hidden = true;
+
+        // Reset first (it hides the messages), then show the demo message
+        budgetForm.reset();
+
+        requestSuccess.textContent =
+            "Demo only: your budget request was not sent. " +
+            "This form will be connected to the admin side later.";
+        requestSuccess.hidden = false;
+
+        document.querySelector(".request-scroll").scrollTop = 0;
+    });
+}

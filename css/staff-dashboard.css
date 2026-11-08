@@ -386,6 +386,180 @@ footer {
     text-align: center;
 }
 
+/* ===== BUDGET REQUEST FORM ===== */
+
+/* The form is taller than the box, so the form area scrolls */
+#request.content-section.active {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.request-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* DEMO NOTE AND MESSAGES */
+.demo-note {
+    flex-shrink: 0;
+    margin-bottom: 12px;
+    padding: 9px 12px;
+    background-color: #FDF3E1;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    color: #7a4f08;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.request-message {
+    flex-shrink: 0;
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.request-message.success {
+    padding: 9px 12px;
+    background-color: #F0F6F1;
+    border: 1px solid #D5E5D8;
+    border-radius: 4px;
+    color: var(--green);
+}
+
+.request-message.error {
+    color: #a12622;
+}
+
+.request-message[hidden] {
+    display: none;
+}
+
+/* FORM GRID */
+.request-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 15px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    height: 38px;
+    padding: 9px 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+.form-group textarea {
+    height: auto;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 2px rgba(22, 128, 68, 0.15);
+}
+
+.form-group input[readonly] {
+    background-color: #F1F4F8;
+    color: #777;
+}
+
+/* STATUS (read-only) */
+.status-field {
+    display: flex;
+    align-items: center;
+    height: 38px;
+}
+
+.status.pending {
+    background-color: #FFF3DC;
+    color: #B7791F;
+    font-size: 12px;
+    padding: 6px 10px;
+}
+
+/* FILE INPUT */
+.form-group input[type="file"] {
+    padding: 5px 8px;
+    font-size: 12px;
+    color: #555;
+}
+
+.form-group input[type="file"]::file-selector-button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #F1F4F8;
+    color: var(--navy);
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+/* BUTTONS */
+.request-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0 5px;
+    padding-bottom: 4px;
+}
+
+.request-actions .view-button,
+.clear-button {
+    height: 38px;
+}
+
+.clear-button {
+    padding: 0 17px;
+    background-color: white;
+    color: var(--navy);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.clear-button:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+
 /* RESPONSIVE DESIGN */
 @media (max-width: 800px) {
 
@@ -541,5 +715,34 @@ footer {
 
     footer {
         font-size: 11px;
+    }
+}
+
+/* BUDGET REQUEST FORM - MOBILE */
+@media (max-width: 600px) {
+
+    .request-grid {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .demo-note {
+        font-size: 11px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 12px;
+    }
+
+    .clear-button {
+        padding: 0 10px;
+        font-size: 11px;
+    }
+
+    .request-actions .view-button,
+    .clear-button {
+        height: 34px;
     }
 }

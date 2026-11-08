@@ -1,0 +1,137 @@
+:root {
+    --header-text: #168044;     
+    --header-accent: #2d75b9;   
+}
+
+/* BAR */
+.navbar {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 75px;
+    flex: 0 0 75px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 2px 2%;
+    background-color: white;
+    border-bottom: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* LOGO + NAME */
+.navbar .brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--header-text);
+}
+
+.navbar .brand img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.navbar .brand span {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+/* LINKS (sit next to the logo; the Log out button is pushed to the far right) */
+.navbar nav {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar nav a {
+    flex-shrink: 0;
+    color: var(--header-text);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+    padding: 0 0 6px;
+    border-bottom: 3px solid transparent;   /* reserves space so nothing jumps */
+}
+
+.navbar nav a:hover {
+    color: var(--header-accent);
+}
+
+/* THE BLUE LINE UNDER THE CURRENT PAGE */
+.navbar nav a.active {
+    border-bottom-color: var(--header-accent);
+}
+
+/* LOG OUT BUTTON (added by js/student-session.js) */
+.navbar .logout-button {
+    flex-shrink: 0;
+    margin-left: auto;
+    padding: 7px 14px;
+    color: var(--header-text);
+    background: white;
+    border: 1px solid var(--header-text);
+    border-radius: 4px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.navbar .logout-button:hover {
+    color: white;
+    background: var(--header-text);
+}
+
+/* PHONES */
+@media (max-width: 600px) {
+    .navbar {
+        height: 65px;
+        flex-basis: 65px;
+        padding: 0 5%;
+        gap: 14px;
+    }
+
+    .navbar .brand {
+        gap: 8px;
+        font-size: 19px;
+    }
+
+    .navbar .brand img {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* many links: let the row scroll sideways instead of wrapping */
+    .navbar nav {
+        gap: 18px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .navbar nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .navbar nav a {
+        font-size: 15px;
+    }
+
+    /* keep Log out visible while the links scroll underneath it */
+    .navbar .logout-button {
+        position: sticky;
+        right: 0;
+        font-size: 13px;
+        padding: 6px 10px;
+        box-shadow: -10px 0 8px white;
+    }
+}

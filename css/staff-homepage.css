@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #163D70;
+    --green: #168044;
+    --gold: #E6A12E;
+    --white: #FFFFFF;
+    --background: #F5F7FA;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* MAIN CONTENT */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 25px;
+    padding: 35px 20px 20px;
+}
+
+/* WELCOME SECTION */
+.welcome-section {
+    width: 100%;
+    max-width: 1100px;
+    height: 165px;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 20px;
+    border-radius: 6px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(230, 161, 46, 0.88),
+            rgba(22, 128, 68, 0.88)
+        ),
+        url("../photos/background.png");
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.welcome-section h1 {
+    font-size: clamp(23px, 3vw, 32px);
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: clamp(12px, 1.5vw, 17px);
+    line-height: 1.5;
+}
+
+/* CHOICE SECTION */
+.choice-section {
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+}
+
+.choice-section h2 {
+    color: var(--navy);
+    font-size: clamp(15px, 2.8vw, 18px);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.choice-section > p {
+    color: #64748B;
+    font-size: clamp(10px, 1.8vw, 15px);
+    margin-bottom: 15px;
+}
+
+/* CHOICE CARDS CONTAINER */
+.choice-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+/* CHOICE CARDS */
+.choice-card {
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* CARD TEXT */
+.choice-card h3 {
+    color: var(--navy);
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.choice-card p {
+    color: #64748B;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+/* SIMPLE BUTTONS */
+.choice-button {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 15px;
+
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+/* DASHBOARD BUTTON */
+.dashboard-button {
+    background-color: #447d5c;
+}
+
+.dashboard-button:hover {
+    background-color: #116B38;
+}
+
+/* CATALOG BUTTON */
+.catalog-button {
+    background-color: #a87a2d;
+}
+
+.catalog-button:hover {
+    background-color: #CC891F;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    min-height: 55px;
+    margin-top: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        90deg,
+        var(--green) 0%,
+        var(--green) 50%,
+        var(--gold) 100%
+    );
+
+    color: white;
+    padding: 10px 15px;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 700px) {
+    .choice-container {
+        grid-template-columns: 1fr;
+    }
+}

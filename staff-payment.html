@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment - NWSSU Staff</title>
+
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="css/staff-header.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="brand">
+            <img src="photos/nwssu-logo.png" alt="NWSSU Logo">
+            <span>NWSSU</span>
+        </div>
+
+        <nav>
+            <a href="staff-homepage.html">Home</a>
+            <a href="staff-dashboard.html">Dashboard</a>
+            <a href="staff-catalog.html">Catalog</a>
+            <a href="staff-cart.html" class="active">Cart</a>
+        </nav>
+
+    </header>
+
+    <main class="payment-container">
+
+        <h1>GCash Payment</h1>
+        <p class="subtitle">
+            Scan the QR code and pay the exact amount of your order.
+        </p>
+
+        <section class="payment-section">
+
+            <h2>Order Summary</h2>
+
+            <div id="orderItems"></div>
+
+            <div class="total">
+                <span>Total Amount</span>
+                <span id="orderTotal">₱0.00</span>
+            </div>
+
+        </section>
+
+        <section class="payment-section qr-payment-section">
+
+            <h2>Scan to Pay</h2>
+
+            <div class="demo-warning">
+                <strong>DEMO MODE:</strong>
+                This QR code is for testing purposes only.
+                It is NOT connected to the university's actual GCash account.
+            </div>
+
+            <p>Scan the QR code using your GCash application.</p>
+
+            <div class="qr-container">
+                <div id="gcashQR">
+                    Generating QR Code...
+                </div>
+            </div>
+
+            <p>Amount to Pay:</p>
+
+            <div class="payment-amount" id="qrAmount">
+                ₱0.00
+            </div>
+
+            <p class="payment-status-note">
+                Please pay the exact amount displayed above.
+                In the actual system, payment confirmation must be
+                verified by the University Cashier.
+            </p>
+
+        </section>
+
+        <div class="payment-actions">
+
+            <a href="staff-cart.html" class="back-button">
+                Back to Cart
+            </a>
+
+            <a href="payment-receipt.html" id="confirmPayment" class="pay-button">
+                Confirm Payment
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>
+            © 2026 Northwest Samar State University |
+            Online Payment System
+        </p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script src="js/staff-payment-store.js"></script>
+    <script src="js/staff-payment.js"></script>
+    <script src="js/staff-session.js"></script>
+
+</body>
+</html>

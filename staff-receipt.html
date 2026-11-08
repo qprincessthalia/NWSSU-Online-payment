@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment Receipt - NWSSU Staff</title>
+
+    <!-- Reuses the student receipt styles -->
+    <link rel="stylesheet" href="css/payment-receipt.css">
+    <link rel="stylesheet" href="css/staff-header.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="navbar">
+
+        <div class="brand">
+            <img src="photos/nwssu-logo.png" alt="NWSSU Logo">
+            <span>NWSSU</span>
+        </div>
+
+        <nav>
+            <a href="staff-homepage.html">Home</a>
+            <a href="staff-dashboard.html">Dashboard</a>
+            <a href="staff-catalog.html">Catalog</a>
+            <a href="staff-cart.html">Cart</a>
+        </nav>
+
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="receipt-container">
+
+        <div class="receipt-header">
+            <h1>Payment Receipt</h1>
+            <p>Your transaction details are shown below.</p>
+        </div>
+
+        <section class="receipt-card">
+
+            <div class="receipt-status">
+                <h2>Demo Checkout Complete</h2>
+                <p>No real payment was processed.</p>
+            </div>
+
+            <div class="receipt-details">
+
+                <div class="detail-row">
+                    <span>Staff Account</span>
+                    <strong id="staffName"></strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>Date and Time</span>
+                    <strong id="purchaseDate"></strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>Transaction ID</span>
+                    <strong id="transactionId"></strong>
+                </div>
+
+                <div class="divider"></div>
+
+                <h3>Product Purchased</h3>
+                <div id="purchasedProducts"></div>
+
+                <div class="divider"></div>
+
+                <h3>Claiming Office</h3>
+                <div id="claimingOffices"></div>
+
+                <div class="divider"></div>
+
+                <div class="detail-row">
+                    <span>Payment Method</span>
+                    <strong id="paymentMethod"></strong>
+                </div>
+
+                <div class="total-row">
+                    <span>Total Amount Paid</span>
+                    <strong id="receiptTotal"></strong>
+                </div>
+
+            </div>
+
+            <p class="receipt-note">
+                Keep this demo record for reference; it is not proof of a processed payment.
+            </p>
+
+        </section>
+
+        <div class="receipt-actions">
+            <button type="button" class="download-button" id="printButton">
+                Print / Save Receipt
+            </button>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Northwest Samar State University | Online Payment System</p>
+    </footer>
+
+    <script src="js/staff-payment-store.js"></script>
+    <script src="js/staff-receipt.js"></script>
+    <script src="js/staff-session.js"></script>
+</body>
+</html>
